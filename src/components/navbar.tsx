@@ -2,6 +2,7 @@
 
 import { scrollToSection } from "@/lib/scroll-to-section";
 import type { NavItem } from "@/types/portfolio";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { type MouseEvent, useEffect, useState } from "react";
@@ -57,10 +58,13 @@ export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[]
           ))}
         </div>
 
-        {/* Mobile toggle */}
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-foreground">
-          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          {/* Mobile toggle */}
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-foreground">
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

@@ -10,7 +10,7 @@ import { navItems, portfolioContent } from "@/data/portfolio";
 export default function Home() {
 
   return (
-    <main className="dark min-h-screen bg-background">
+    <main className="min-h-screen bg-background">
       <div className="noise absolute inset-0 z-0" />
 
       <TopScrollProgress />

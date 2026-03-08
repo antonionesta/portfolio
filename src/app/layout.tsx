@@ -16,9 +16,7 @@ const displayFont = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio Tech | Personal Site",
-  description:
-    "Sito personale tech-style con stile dark, accenti neon e animazioni scroll.",
+  title: "Antonio Nesta | Portfolio"
 };
 
 export default function RootLayout({
@@ -27,7 +25,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-mono", monoFont.variable)}>
+    // La classe tema puo differire tra SSR e client (preferenza in localStorage/sistema),
+    // quindi sopprimiamo i warning di hydration su <html> per questo mismatch atteso.
+    <html lang="en" suppressHydrationWarning className={cn("font-mono", monoFont.variable)}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Esegue prima dell'hydration di React per evitare il flash del tema (FOUC):
+              // 1) legge la preferenza esplicita da localStorage
+              // 2) in fallback usa la preferenza del sistema operativo
+              // 3) aggiunge/rimuove la classe .dark su <html>
+              (function () {
+                try {
+                  var saved = localStorage.getItem("theme");
+                  var isDark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+                  document.documentElement.classList.toggle("dark", isDark);
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={`${displayFont.variable} ${monoFont.variable} antialiased`}>
         {children}
       </body>
