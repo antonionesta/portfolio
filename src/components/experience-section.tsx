@@ -25,7 +25,7 @@ export function ExperienceSection({ experiences }: { experiences: PortfolioConte
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4.75 top-0 bottom-0 w-px bg-white/30 md:left-1/2" />
+          <div className="absolute left-4.75 top-0 bottom-0 w-px bg-black/30 dark:bg-white/30 md:left-1/2" />
 
           {experiences.map((exp, i) => (
             <motion.div

@@ -25,8 +25,8 @@
   --accent: hsl(270 100% 65%);
   --accent-foreground: hsl(210 20% 95%);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: hsl(220 16% 18%);
-  --input: hsl(220 16% 18%);
+  --border: hsl(220 18% 86%);
+  --input: hsl(220 18% 86%);
   --ring: oklch(0.705 0.015 286.067);
   --chart-1: oklch(0.845 0.143 164.978);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -98,23 +98,23 @@
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0), radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-image: radial-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 0), radial-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 0);
   background-position: 0 0, 10px 10px;
   background-size: 3px 3px;
-  opacity: 0.25;
-  mix-blend-mode: screen;
+  opacity: 0.2;
+  mix-blend-mode: multiply;
 }
 
 .grid-bg {
   background-image:
     linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.05) 1px,
+      rgba(15, 23, 42, 0.06) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      rgba(160, 107, 255, 0.05) 1px,
+      rgba(15, 23, 42, 0.045) 1px,
       transparent 1px
     );
   background-size: 60px 60px;
@@ -176,6 +176,26 @@ code, .font-mono {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
+}
+
+.dark .noise::before {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0), radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  opacity: 0.25;
+  mix-blend-mode: screen;
+}
+
+.dark .grid-bg {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(160, 107, 255, 0.05) 1px,
+      transparent 1px
+    );
 }
 
 /* Neon glow utilities */
