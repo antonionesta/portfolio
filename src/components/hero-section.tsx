@@ -69,7 +69,7 @@ export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="relative shrink-0"
         >
-          <div className="size-56 overflow-hidden rounded-full border-2 border-primary/30 shadow-[0_0_40px_hsl(var(--primary)/0.15)] sm:h-72 sm:w-72">
+          <div className="neon-avatar size-56 overflow-hidden rounded-full border-2 border-primary/40 sm:h-72 sm:w-72">
             <Image
               src="/me.png"
               alt="Foto profilo"
