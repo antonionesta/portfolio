@@ -1,0 +1,15 @@
+{
+  "name": "Antonio Nesta | Portfolio",
+  "short_name": "AN Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

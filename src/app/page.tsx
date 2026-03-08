@@ -8,9 +8,31 @@ import { StorySection } from "@/components/story-section";
 import { navItems, portfolioContent } from "@/data/portfolio";
 
 export default function Home() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://antonionesta.dev";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        name: "Antonio Nesta",
+        url: siteUrl,
+        jobTitle: "Frontend Team Leader",
+        sameAs: portfolioContent.hero.socialLinks.map((social) => social.href),
+      },
+      {
+        "@type": "WebSite",
+        name: "Antonio Nesta | Portfolio",
+        url: siteUrl,
+      },
+    ],
+  };
 
   return (
     <main className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="noise absolute inset-0 z-0" />
 
       <TopScrollProgress />

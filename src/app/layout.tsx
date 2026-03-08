@@ -3,6 +3,9 @@ import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://antonionesta.dev";
+const metadataBase = new URL(siteUrl);
+
 const monoFont = JetBrains_Mono({
   variable: "--font-mono-tech",
   subsets: ["latin"],
@@ -16,7 +19,67 @@ const displayFont = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Antonio Nesta | Portfolio",
+  metadataBase,
+  title: {
+    default: "Antonio Nesta | Portfolio",
+    template: "%s | Antonio Nesta",
+  },
+  description:
+    "Portfolio di Antonio Nesta, Frontend Team Leader e Software Engineer specializzato in applicazioni web moderne, performance e scalabilita.",
+  applicationName: "Antonio Nesta Portfolio",
+  authors: [{ name: "Antonio Nesta", url: siteUrl }],
+  creator: "Antonio Nesta",
+  publisher: "Antonio Nesta",
+  keywords: [
+    "Antonio Nesta",
+    "Portfolio",
+    "Frontend Engineer",
+    "Frontend Team Leader",
+    "Angular",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Software Engineer",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "it_IT",
+    url: siteUrl,
+    siteName: "Antonio Nesta | Portfolio",
+    title: "Antonio Nesta | Portfolio",
+    description:
+      "Frontend Team Leader e Software Engineer: applicazioni web moderne, affidabili e scalabili.",
+    images: [
+      {
+        url: "/icon.svg",
+        width: 512,
+        height: 512,
+        alt: "Logo AN",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Antonio Nesta | Portfolio",
+    description:
+      "Frontend Team Leader e Software Engineer: applicazioni web moderne, affidabili e scalabili.",
+    images: ["/icon.svg"],
+  },
+  manifest: "/site.webmanifest",
   icons: {
     icon: [{ url: "/icon.svg?v=2", type: "image/svg+xml" }],
     shortcut: [{ url: "/icon.svg?v=2", type: "image/svg+xml" }],
