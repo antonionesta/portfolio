@@ -41,7 +41,7 @@ export function AboutSection({ about }: { about: PortfolioContent["about"] }) {
               </p>
               <p className="pl-4">
                 <span className="text-neon-blue">passione</span>:{" "}
-                <span className="text-primary">"Infinita"</span>,
+                <span className="text-primary">"Tanta"</span>,
               </p>
               <p className="pl-4">
                 <span className="text-neon-blue">caffè</span>:{" "}

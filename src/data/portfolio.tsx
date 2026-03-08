@@ -47,10 +47,8 @@ export const portfolioContent: PortfolioContent = {
     title: "About Me",
     paragraphs: [
       "Appassionato di informatica e tecnologia in generale, attualmente mi occupo dello sviluppo di web app. Mi ritengo principalmente uno sviluppatore frontend, dato che e l'ambito in cui sono maggiormente formato, ma sviluppo anche lato backend.",
-      "Attualmente come stack tecnologico utilizzo i framework Angular e Spring Boot uniti a un DB SQL Server. Lato frontend, gestire applicativi enterprise di una certa dimensione e un compito abbastanza arduo, per questo non riesco a fare a meno di NgRx, uno state manager reattivo ispirato al pattern Redux.",
-      "Per la parte di testing mi affido alle librerie JUnit e Karma per i test unitari e Cypress per i test end-to-end.",
-      "Ho avuto modo di conoscere anche altre librerie e framework, sia per lavoro che per progetti personali: React, Next.js, StencilJs e molti altri. Ho scritto e pubblicato anche una piccola app con Flutter.",
-      "In poche parole, se non lo aveste ancora capito, adoro sviluppare e sono curioso di scoprire e studiare sempre cose nuove.",
+      "Attualmente utilizzo quotidianamente i framework Angular e Spring Boot. Lato frontend, gestire applicativi enterprise di una certa dimensione e un compito abbastanza arduo, per questo non riesco a fare a meno di Tanstack Query, uno state manager asincrono solido e performante.",
+      "Ho avuto modo di conoscere anche altre librerie e framework, sia per lavoro che per progetti personali: React, Next.js, StencilJs e molti altri. Ho anche scritto una piccola app con Flutter."
     ],
     skills: [
       {
