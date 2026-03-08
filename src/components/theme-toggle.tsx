@@ -5,44 +5,42 @@ import { useEffect, useState } from "react";
 
 type ThemeMode = "light" | "dark";
 
+function readPreferredTheme(): ThemeMode {
+  if (typeof window === "undefined") {
+    return "dark";
+  }
+
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme === "light" || storedTheme === "dark") {
+    return storedTheme;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
 export function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<ThemeMode>("dark");
+  const [theme, setTheme] = useState<ThemeMode>(readPreferredTheme);
 
   useEffect(() => {
-    // Mantiene lo stato UI allineato al tema effettivo scelto a runtime.
-    // Viene eseguito solo lato client (localStorage + matchMedia sono API browser).
-    const root = document.documentElement;
-    const storedTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const nextTheme: ThemeMode =
-      storedTheme === "light" || storedTheme === "dark"
-        ? (storedTheme as ThemeMode)
-        : systemPrefersDark
-          ? "dark"
-          : "light";
-
-    root.classList.toggle("dark", nextTheme === "dark");
-    setTheme(nextTheme);
-    setMounted(true);
-  }, []);
+    // Applica il tema all'elemento root e persiste la scelta.
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    // Fonte unica di verita: aggiorna classe DOM + persiste preferenza + aggiorna stato React.
+    // Cambia solo lo stato React: l'effect sincronizza DOM e localStorage.
     const nextTheme: ThemeMode = theme === "dark" ? "light" : "dark";
-    document.documentElement.classList.toggle("dark", nextTheme === "dark");
-    localStorage.setItem("theme", nextTheme);
     setTheme(nextTheme);
   };
 
   return (
     <button
       type="button"
-      aria-label={mounted ? `Attiva tema ${theme === "dark" ? "chiaro" : "scuro"}` : "Cambia tema"}
+      aria-label={`Attiva tema ${theme === "dark" ? "chiaro" : "scuro"}`}
       onClick={toggleTheme}
-      className="inline-flex h-9 w-9 items-center justify-center text-muted-foreground transition-colors hover:text-primary"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-muted-foreground outline-none transition-colors hover:text-primary focus-visible:border-white/80"
     >
-      {mounted && theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>
   );
 }

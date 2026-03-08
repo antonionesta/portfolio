@@ -16,7 +16,7 @@ export function StorySection({ story }: { story: PortfolioContent["story"] }) {
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// my story</p>
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">{"// my story"}</p>
           <h2 className="mb-12 text-3xl font-bold sm:text-4xl">
             <span className="text-foreground">La Mia</span> <span className="text-primary">Storia</span>
           </h2>

@@ -16,7 +16,12 @@ const displayFont = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Antonio Nesta | Portfolio"
+  title: "Antonio Nesta | Portfolio",
+  icons: {
+    icon: [{ url: "/icon.svg?v=2", type: "image/svg+xml" }],
+    shortcut: [{ url: "/icon.svg?v=2", type: "image/svg+xml" }],
+    apple: [{ url: "/icon.svg?v=2", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({
@@ -27,8 +32,10 @@ export default function RootLayout({
   return (
     // La classe tema puo differire tra SSR e client (preferenza in localStorage/sistema),
     // quindi sopprimiamo i warning di hydration su <html> per questo mismatch atteso.
-    <html lang="en" suppressHydrationWarning className={cn("font-mono", monoFont.variable)}>
+    <html lang="it" suppressHydrationWarning className={cn("font-mono", monoFont.variable)}>
       <head>
+        <link rel="icon" href="/icon.svg?v=2" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/icon.svg?v=2" type="image/svg+xml" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

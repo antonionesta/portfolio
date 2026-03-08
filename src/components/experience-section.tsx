@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import type { PortfolioContent } from "@/types/portfolio";
-import { Briefcase } from "lucide-react";
 
 export function ExperienceSection({ experiences }: { experiences: PortfolioContent["experiences"] }) {
   const ref = useRef(null);
@@ -17,7 +16,7 @@ export function ExperienceSection({ experiences }: { experiences: PortfolioConte
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// experiences</p>
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">{"// experiences"}</p>
           <h2 className="mb-12 text-3xl font-bold sm:text-4xl">
             <span className="text-foreground">Le Mie</span> <span className="text-primary">Esperienze</span>
           </h2>
@@ -45,8 +44,7 @@ export function ExperienceSection({ experiences }: { experiences: PortfolioConte
               {/* Content */}
               <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
                 <div className="rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50">
-                  <div className="mb-2 flex items-center gap-2">
-                    <Briefcase className="h-4 w-4 text-primary" />
+                  <div className="mb-2">
                     <span className="font-mono text-xs text-primary">{exp.period}</span>
                   </div>
                   <h3 className="text-lg font-semibold text-foreground">{exp.role}</h3>

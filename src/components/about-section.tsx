@@ -16,7 +16,7 @@ export function AboutSection({ about }: { about: PortfolioContent["about"] }) {
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// about me</p>
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">{"// about me"}</p>
           <h2 className="mb-12 text-3xl font-bold sm:text-4xl">
             <span className="text-foreground">Chi</span> <span className="text-primary">Sono</span>
           </h2>
@@ -34,25 +34,6 @@ export function AboutSection({ about }: { about: PortfolioContent["about"] }) {
                 {paragraph}
               </p>
             ))}
-            {/*<div className="mt-8 rounded-md border border-border bg-card p-4 font-mono text-xs">
-              <p className="text-muted-foreground">
-                <span className="text-primary">const</span>{" "}
-                <span className="text-accent">developer</span> = {"{"}
-              </p>
-              <p className="pl-4">
-                <span className="text-neon-blue">passione</span>:{" "}
-                <span className="text-primary">"Tanta"</span>,
-              </p>
-              <p className="pl-4">
-                <span className="text-neon-blue">caffè</span>:{" "}
-                <span className="text-primary">"Obbligatorio"</span>,
-              </p>
-              <p className="pl-4">
-                <span className="text-neon-blue">bugFixes</span>:{" "}
-                <span className="text-accent">Infinity</span>
-              </p>
-              <p>{"}"}</p>
-            </div>*/}
           </motion.div>
 
           <motion.div

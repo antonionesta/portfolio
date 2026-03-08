@@ -84,7 +84,7 @@ export const portfolioContent: PortfolioContent = {
   experiences: [
     {
       period: "Luglio 2018 - Oggi",
-      role: "Fronted Team Leader",
+      role: "Frontend Team Leader",
       company: "GRAF Industries S.p.A.",
       summary: "Sviluppo applicativo enterprise TAG Application.",
       highlights: [
