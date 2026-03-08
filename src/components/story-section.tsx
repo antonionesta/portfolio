@@ -36,7 +36,7 @@ export function StorySection({ story }: { story: PortfolioContent["story"] }) {
                 <h3 className="text-lg font-semibold text-foreground">{title}</h3>
               </div>
               <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
-              {/* Accent line */}
+              {/* Linea di accento */}
               <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-500 group-hover:w-full rounded-b-lg" />
             </motion.div>
           ))}

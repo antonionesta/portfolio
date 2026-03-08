@@ -23,7 +23,7 @@ export function ExperienceSection({ experiences }: { experiences: PortfolioConte
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
+          {/* Linea della timeline */}
           <div className="absolute left-4.75 top-0 bottom-0 w-px bg-black/30 dark:bg-white/30 md:left-1/2" />
 
           {experiences.map((exp, i) => (
@@ -36,12 +36,12 @@ export function ExperienceSection({ experiences }: { experiences: PortfolioConte
                 i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
-              {/* Dot */}
+              {/* Punto della timeline */}
               <div className="absolute left-3 top-2 z-10 flex size-3.75 items-center justify-center rounded-full border-2 border-primary bg-background md:left-1/2 md:-translate-x-1/2">
                 <div className="h-1.5 w-1.5 rounded-full bg-primary" />
               </div>
 
-              {/* Content */}
+              {/* Contenuto */}
               <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
                 <div className="rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50">
                   <div className="mb-2">

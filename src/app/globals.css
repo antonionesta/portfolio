@@ -198,7 +198,7 @@ code, .font-mono {
     );
 }
 
-/* Neon glow utilities */
+/* Utility per effetto neon */
 .neon-text {
   text-shadow: 0 0 10px var(--color-neon-glow) / 0.6, 0 0 40px var(--color-neon-glow) / 0.3;
 }

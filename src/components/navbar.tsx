@@ -44,7 +44,7 @@ export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[]
           <span>{brand}</span>
         </a>
 
-        {/* Desktop */}
+        {/* Menu desktop */}
         <div className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <a
@@ -60,14 +60,14 @@ export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[]
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          {/* Mobile toggle */}
+          {/* Toggle mobile */}
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-foreground">
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Menu mobile */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

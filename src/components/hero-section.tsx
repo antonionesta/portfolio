@@ -9,12 +9,12 @@ import Image from "next/image";
 export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
   return (
     <section id="home" className="relative flex min-h-screen items-center justify-center grid-bg overflow-hidden">
-      {/* Gradient orbs */}
+      {/* Sfere di gradiente */}
       <div className="pointer-events-none absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-1/4 -right-32 h-96 w-96 rounded-full bg-accent/10 blur-[120px]" />
 
       <div className="container relative z-10 flex flex-col items-center gap-12 px-6 md:flex-row md:justify-center">
-        {/* Text content */}
+        {/* Contenuto testuale */}
         <div className="text-center md:text-left">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
           </motion.div>
         </div>
 
-        {/* Portrait */}
+        {/* Ritratto */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
