@@ -47,7 +47,7 @@ export const portfolioContent: PortfolioContent = {
     title: "About Me",
     paragraphs: [
       "Appassionato di informatica e tecnologia in generale, attualmente mi occupo dello sviluppo di web app. Mi ritengo principalmente uno sviluppatore frontend, dato che e l'ambito in cui sono maggiormente formato, ma sviluppo anche lato backend.",
-      "Attualmente utilizzo quotidianamente i framework Angular e Spring Boot. Lato frontend, gestire applicativi enterprise di una certa dimensione e un compito abbastanza arduo, per questo non riesco a fare a meno di Tanstack Query, uno state manager asincrono solido e performante.",
+      "Attualmente utilizzo quotidianamente i framework Angular e Spring Boot. Lato frontend, gestire applicativi enterprise di una certa dimensione è un compito abbastanza arduo, per questo non riesco a fare a meno di Tanstack Query, uno state manager asincrono solido e performante.",
       "Ho avuto modo di conoscere anche altre librerie e framework, sia per lavoro che per progetti personali: React, Next.js, StencilJs e molti altri. Ho anche scritto una piccola app con Flutter."
     ],
     skills: [
@@ -133,17 +133,17 @@ export const portfolioContent: PortfolioContent = {
     {
       icon: <MonitorSmartphone className="h-6 w-6 text-primary" />,
       title: "Dalla passione alla pratica",
-      text: "Ho iniziato aiutando clienti finali con problemi tecnici quotidiani: PC, reti domestiche e diagnostica. E stata la fase in cui ho imparato metodo, precisione e attenzione alle persone.",
+      text: "Ho iniziato aiutando clienti finali con problemi tecnici quotidiani: PC, reti domestiche e diagnostica. È stata la fase in cui ho imparato metodo, precisione e attenzione alle persone.",
     },
     {
       icon: <ShoppingCart className="h-6 w-6 text-primary" />,
       title: "Visione prodotto e business",
-      text: "Come E-Commerce Manager ho lavorato tra catalogo, ordini, marketplace e customer care. Qui ho capito quanto contino insieme esperienza utente, organizzazione e risultati.",
+      text: "Come responsabile e-commerce ho lavorato tra catalogo, ordini, marketplace e customer care. Qui ho capito quanto contino insieme esperienza utente, organizzazione e risultati.",
     },
     {
       icon: <Rocket className="h-6 w-6 text-primary" />,
       title: "Specializzazione frontend",
-      text: "Dal 2018 mi sono specializzato nel frontend, soprattutto con Angular in contesti enterprise. Ho costruito gran parte delle mie competenze con un percorso intenso da autodidatta, in un contesto di studio e lavoro continui.",
+      text: "Dal 2018 mi sono specializzato nello sviluppo frontend, soprattutto con Angular in contesti enterprise. Ho costruito gran parte delle mie competenze con un percorso intenso da autodidatta, in un contesto di studio e lavoro continui.",
     },
     {
       icon: <Users className="h-6 w-6 text-primary" />,
