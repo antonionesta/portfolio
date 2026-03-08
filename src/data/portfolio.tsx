@@ -14,9 +14,9 @@ import {
 
 export const navItems: NavItem[] = [
   { label: "HOME", href: "#home" },
-  { label: "CHI SONO", href: "#chi-sono" },
-  { label: "ESPERIENZE", href: "#esperienze" },
-  { label: "LA MIA STORIA", href: "#storia" },
+  { label: "CHI SONO", href: "#about" },
+  { label: "ESPERIENZE", href: "#experiences" },
+  { label: "LA MIA STORIA", href: "#story" },
 ];
 
 export const portfolioContent: PortfolioContent = {
@@ -28,8 +28,8 @@ export const portfolioContent: PortfolioContent = {
     roles: ["Software Engineer", "Full Stack Developer", "Tech Enthusiast"],
     summary:
       "Progetto e Sviluppo applicazioni moderne con focus su performance e stabilità.",
-    ctaPrimary: { label: "Scopri Chi Sono", href: "#chi-sono" },
-    ctaSecondary: { label: "Vedi Esperienze", href: "#esperienze" },
+    ctaPrimary: { label: "Scopri Chi Sono", href: "#about" },
+    ctaSecondary: { label: "Vedi Esperienze", href: "#experiences" },
     socialLinks: [
       {
         label: "GitHub",
@@ -46,8 +46,11 @@ export const portfolioContent: PortfolioContent = {
   about: {
     title: "About Me",
     paragraphs: [
-      "Sono uno sviluppatore orientato al prodotto, con esperienza nella costruzione di soluzioni web moderne e scalabili.",
-      "Lavoro su architetture frontend solide, design system e processi di delivery per ridurre il debito tecnico nel tempo.",
+      "Appassionato di informatica e tecnologia in generale, attualmente mi occupo dello sviluppo di web app. Mi ritengo principalmente uno sviluppatore frontend, dato che e l'ambito in cui sono maggiormente formato, ma sviluppo anche lato backend.",
+      "Attualmente come stack tecnologico utilizzo i framework Angular e Spring Boot uniti a un DB SQL Server. Lato frontend, gestire applicativi enterprise di una certa dimensione e un compito abbastanza arduo, per questo non riesco a fare a meno di NgRx, uno state manager reattivo ispirato al pattern Redux.",
+      "Per la parte di testing mi affido alle librerie JUnit e Karma per i test unitari e Cypress per i test end-to-end.",
+      "Ho avuto modo di conoscere anche altre librerie e framework, sia per lavoro che per progetti personali: React, Next.js, StencilJs e molti altri. Ho scritto e pubblicato anche una piccola app con Flutter.",
+      "In poche parole, se non lo aveste ancora capito, adoro sviluppare e sono curioso di scoprire e studiare sempre cose nuove.",
     ],
     skills: [
       {

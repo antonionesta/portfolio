@@ -9,14 +9,14 @@ export function StorySection({ story }: { story: PortfolioContent["story"] }) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="storia" className="relative py-12 md:py-32">
+    <section id="story" className="relative py-12 md:py-32">
       <div className="container px-6 mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// la mia storia</p>
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// my story</p>
           <h2 className="mb-12 text-3xl font-bold sm:text-4xl">
             <span className="text-foreground">La Mia</span> <span className="text-primary">Storia</span>
           </h2>
@@ -29,7 +29,7 @@ export function StorySection({ story }: { story: PortfolioContent["story"] }) {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 + i * 0.12, duration: 0.5 }}
-              className="group relative rounded-lg border border-border bg-card p-6 transition-all hover:border-primary hover:neon-border"
+              className="group relative overflow-hidden rounded-lg border border-border bg-card p-6 transition-all hover:border-primary hover:neon-border"
             >
               <div className="mb-4 flex items-center justify-between">
                 {icon}

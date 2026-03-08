@@ -83,7 +83,7 @@ export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        onClick={() => document.querySelector("#chi-sono")?.scrollIntoView({ behavior: "smooth" })}
+        onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
         className="absolute bottom-8 inline-flex animate-bounce text-muted-foreground hover:text-primary transition-colors"
       >
         <ArrowDown className="h-5 w-5" />

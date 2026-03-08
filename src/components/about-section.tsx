@@ -9,16 +9,16 @@ export function AboutSection({ about }: { about: PortfolioContent["about"] }) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="chi-sono" className="relative py-12 md:py-32">
+    <section id="about" className="relative py-12 md:py-32">
       <div className="container px-6 mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// chi sono</p>
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// about me</p>
           <h2 className="mb-12 text-3xl font-bold sm:text-4xl">
-            <span className="text-foreground">About</span> <span className="text-primary">Me</span>
+            <span className="text-foreground">Chi</span> <span className="text-primary">Sono</span>
           </h2>
         </motion.div>
 
