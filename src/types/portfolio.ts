@@ -22,6 +22,7 @@ export type Experience = {
   role: string;
   company: string;
   summary: string;
+  highlights: string[];
   stack: string[];
 };
 

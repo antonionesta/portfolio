@@ -34,7 +34,7 @@ export function AboutSection({ about }: { about: PortfolioContent["about"] }) {
                 {paragraph}
               </p>
             ))}
-            <div className="mt-8 rounded-md border border-border bg-card p-4 font-mono text-xs">
+            {/*<div className="mt-8 rounded-md border border-border bg-card p-4 font-mono text-xs">
               <p className="text-muted-foreground">
                 <span className="text-primary">const</span>{" "}
                 <span className="text-accent">developer</span> = {"{"}
@@ -52,7 +52,7 @@ export function AboutSection({ about }: { about: PortfolioContent["about"] }) {
                 <span className="text-accent">Infinity</span>
               </p>
               <p>{"}"}</p>
-            </div>
+            </div>*/}
           </motion.div>
 
           <motion.div

@@ -25,7 +25,7 @@ export function ExperienceSection({ experiences }: { experiences: PortfolioConte
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4.75 top-0 bottom-0 w-px bg-border md:left-1/2" />
+          <div className="absolute left-4.75 top-0 bottom-0 w-px bg-white/30 md:left-1/2" />
 
           {experiences.map((exp, i) => (
             <motion.div
@@ -51,7 +51,12 @@ export function ExperienceSection({ experiences }: { experiences: PortfolioConte
                   </div>
                   <h3 className="text-lg font-semibold text-foreground">{exp.role}</h3>
                   <p className="mb-3 font-mono text-sm text-accent neon-purple-text">{exp.company}</p>
-                  <p className="mb-4 text-sm text-muted-foreground">{exp.summary}</p>
+                  <p className="mb-3 text-sm text-muted-foreground">{exp.summary}</p>
+                  <ul className="mb-4 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+                    {exp.highlights.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
                   <div className="flex flex-wrap gap-2">
                     {exp.stack.map((s) => (
                       <span

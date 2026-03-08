@@ -83,28 +83,50 @@ export const portfolioContent: PortfolioContent = {
   },
   experiences: [
     {
-      period: "2022 - Presente",
-      role: "Senior Software Engineer",
-      company: "Tech Corp",
-      summary:
-        "Guida del team frontend, architettura micro-frontend, mentoring junior developers.",
-      stack: ["React", "TypeScript", "AWS"],
+      period: "Luglio 2018 - Oggi",
+      role: "Fronted Team Leader",
+      company: "GRAF Industries S.p.A.",
+      summary: "Sviluppo applicativo enterprise TAG Application.",
+      highlights: [
+        "Technical leadership del team frontend, mentoring degli sviluppatori e code review.",
+        "Definizione di standard di sviluppo e best practice.",
+        "Collaborazione cross-team con backend, UX/UI e stakeholder per la progettazione delle soluzioni.",
+        "Supporto alla pianificazione delle attività e alla gestione delle priorità di sviluppo.",
+        "Analisi e sviluppo di applicativi web con stack Angular / Spring Boot.",
+        "Gestione dello stato applicativo e data fetching con TanStack Query.",
+        "Implementazione di test unitari ed e2e con Vitest."
+      ],
+      stack: ["Angular", "Spring Boot", "Tanstack Query", "Vitest"],
     },
     {
-      period: "2019 - 2022",
-      role: "Full Stack Developer",
-      company: "Startup Innovativa",
-      summary:
-        "Sviluppo prodotto da zero a lancio, gestione infrastruttura cloud, integrazione API.",
-      stack: ["Node.js", "Vue.js", "PostgreSQL"],
+      period: "Giugno 2016",
+      role: "Responsabile E-Commerce",
+      company: "Mazzeo S.R.L.",
+      summary: "Gestione operativa e commerciale di canali e-commerce.",
+      highlights: [
+        "Gestione rapporti con clienti web e customer service pre/post vendita.",
+        "Inserimento professionale prodotti e gestione ordini/magazzino.",
+        "Gestione marketplace Amazon ed eBay.",
+        "Utilizzo CMS OpenCart, Infinity Portal e Magento.",
+        "Gestione template grafico del sito web.",
+        "Supporto campagne pubblicitarie con Google Analytics e AdWords.",
+      ],
+      stack: ["Magento", "OpenCart", "Amazon", "eBay", "Google Analytics", "AdWords"],
     },
     {
-      period: "2017 - 2019",
-      role: "Junior Developer",
-      company: "Digital Agency",
-      summary:
-        "Sviluppo siti web e applicazioni per clienti nazionali e internazionali.",
-      stack: ["JavaScript", "PHP", "MySQL"],
+      period: "Settembre 2015",
+      role: "IT Technical Specialist",
+      company: "NetMassa.it",
+      summary: "Supporto tecnico su hardware, software e reti locali.",
+      highlights: [
+        "Risoluzione problemi hardware e software.",
+        "Manutenzione periodica di componenti e sistemi.",
+        "Installazione e configurazione di cablaggi, hardware e software.",
+        "Documentazione tecnica per reportistica.",
+        "Diagnostica con strumenti di test.",
+        "Installazione e amministrazione reti domestiche e piccole aziende.",
+      ],
+      stack: ["Hardware", "Software", "Networking", "Diagnostica"],
     },
   ],
   story: [
