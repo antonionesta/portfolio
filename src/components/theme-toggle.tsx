@@ -40,7 +40,7 @@ export function ThemeToggle() {
       type="button"
       aria-label={mounted ? `Attiva tema ${theme === "dark" ? "chiaro" : "scuro"}` : "Cambia tema"}
       onClick={toggleTheme}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-secondary/50 text-muted-foreground transition-all hover:border-primary hover:text-primary"
+      className="inline-flex h-9 w-9 items-center justify-center text-muted-foreground transition-colors hover:text-primary"
     >
       {mounted && theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>

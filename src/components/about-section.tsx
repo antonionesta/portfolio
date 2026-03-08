@@ -64,11 +64,14 @@ export function AboutSection({ about }: { about: PortfolioContent["about"] }) {
             {about.skills.map(({ icon, label, desc }, i) => (
               <div
                 key={i}
-                className="group rounded-lg border border-border bg-card p-6 transition-all hover:border-primary hover:neon-border"
+                className="group relative overflow-hidden rounded-lg border border-border bg-card p-6 transition-all hover:border-primary hover:neon-border"
               >
-                {icon}
-                <h3 className="mb-1 font-semibold text-foreground">{label}</h3>
+                <div className="mb-4 flex items-center gap-3">
+                  {icon}
+                  <h3 className="font-semibold text-foreground">{label}</h3>
+                </div>
                 <p className="font-mono text-xs text-muted-foreground">{desc}</p>
+                <div className="absolute bottom-0 left-0 h-0.5 w-0 rounded-b-lg bg-primary transition-all duration-500 group-hover:w-full" />
               </div>
             ))}
           </motion.div>

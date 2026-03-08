@@ -20,14 +20,14 @@ export const navItems: NavItem[] = [
 ];
 
 export const portfolioContent: PortfolioContent = {
-  brand: "<Portfolio />",
+  brand: "<AntonioNesta />",
   hero: {
     greeting: "ciao, mi chiamo",
     firstName: "Antonio",
     lastName: "Nesta",
     roles: ["Team Leader Frontend", "Software Engineer", "Tech Enthusiast"],
     summary:
-      "Progetto e Sviluppo applicazioni moderne con focus su performance e stabilità.",
+      "Costruisco frontend solidi, veloci e scalabili.",
     ctaPrimary: { label: "Scopri Chi Sono", href: "#about" },
     ctaSecondary: { label: "Vedi Esperienze", href: "#experiences" },
     socialLinks: [
@@ -53,28 +53,28 @@ export const portfolioContent: PortfolioContent = {
     skills: [
       {
         icon: (
-          <Code2 className="mb-3 h-6 w-6 text-primary transition-all group-hover:neon-text" />
+          <Code2 className="h-6 w-6 text-primary transition-all group-hover:neon-text" />
         ),
         label: "Frontend",
         desc: "Angular, React, NextJs, Tailwind",
       },
       {
         icon: (
-          <Cpu className="mb-3 h-6 w-6 text-primary transition-all group-hover:neon-text" />
+          <Cpu className="h-6 w-6 text-primary transition-all group-hover:neon-text" />
         ),
         label: "Backend",
         desc: "Express, Fastify, Spring Boot",
       },
       {
         icon: (
-          <Globe className="mb-3 h-6 w-6 text-primary transition-all group-hover:neon-text" />
+          <Globe className="h-6 w-6 text-primary transition-all group-hover:neon-text" />
         ),
         label: "Cloud",
         desc: "Docker",
       },
       {
         icon: (
-          <Zap className="mb-3 h-6 w-6 text-primary transition-all group-hover:neon-text" />
+          <Zap className="h-6 w-6 text-primary transition-all group-hover:neon-text" />
         ),
         label: "DevOps",
         desc: "CI/CD",
