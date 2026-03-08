@@ -1,45 +1,94 @@
+"use client";
+
 import type { PortfolioContent } from "@/types/portfolio";
+import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
+import Image from "next/image";
 
 export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
   return (
-    <section id="home" className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 pb-16 pt-28 sm:px-8">
-      <div className="text-center">
-        <p className="mb-6 font-mono text-3xl text-emerald-300">{hero.greeting}</p>
-        <h1 className="text-6xl font-bold text-zinc-100 sm:text-8xl">
-          {hero.firstName}{" "}
-          <span className="text-emerald-300 drop-shadow-[0_0_18px_rgba(16,185,129,0.85)]">{hero.lastName}</span>
-        </h1>
-        <p className="mt-8 font-mono text-xl text-zinc-400">{hero.roles.join("  •  ")}</p>
-        <p className="mx-auto mt-8 max-w-3xl text-lg text-zinc-300">{hero.summary}</p>
+    <section id="home" className="relative flex min-h-screen items-center justify-center grid-bg overflow-hidden">
+      {/* Gradient orbs */}
+      <div className="pointer-events-none absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-1/4 -right-32 h-96 w-96 rounded-full bg-accent/10 blur-[120px]" />
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {hero.socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-secondary/50 text-muted-foreground transition-all hover:border-primary hover:text-primary hover:neon-border"
-              aria-label={link.label}
-            >
-              {link.icon ?? link.label[0]}
-            </a>
-          ))}
+      <div className="container relative z-10 flex flex-col items-center gap-12 px-6 md:flex-row md:justify-center">
+        {/* Text content */}
+        <div className="text-center md:text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mb-4 font-mono text-sm text-primary neon-text"
+          >
+            &gt; {hero.greeting}
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="mb-6 text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl"
+          >
+            <span className="text-foreground">{hero.firstName} </span>
+            <span className="text-primary neon-text">{hero.lastName}</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mx-auto mb-8 max-w-xl font-mono text-sm leading-relaxed text-muted-foreground sm:text-base md:mx-0"
+          >
+            {hero.roles.join("  •  ")}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="flex items-center justify-center gap-4 md:justify-start"
+          >
+            {hero.socialLinks.map(({ href, label, icon }, i) => (
+              <a
+                key={i}
+                href={href}
+                className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-secondary/50 text-muted-foreground transition-all hover:border-primary hover:text-primary hover:neon-border"
+              >
+                {icon ?? label[0]}
+              </a>
+            ))}
+          </motion.div>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href={hero.ctaPrimary.href}
-            className="rounded-full border border-emerald-300/30 bg-emerald-300/15 px-6 py-3 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-300/30"
-          >
-            {hero.ctaPrimary.label}
-          </a>
-          <a
-            href={hero.ctaSecondary.href}
-            className="rounded-full border border-fuchsia-300/30 bg-fuchsia-300/10 px-6 py-3 text-sm font-semibold text-fuchsia-100 transition hover:bg-fuchsia-300/30"
-          >
-            {hero.ctaSecondary.label}
-          </a>
-        </div>
+        {/* Portrait */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="relative shrink-0"
+        >
+          <div className="size-56 overflow-hidden rounded-full border-2 border-primary/30 shadow-[0_0_40px_hsl(var(--primary)/0.15)] sm:h-72 sm:w-72">
+            <Image
+              src="/me.png"
+              alt="Foto profilo"
+              width={300}
+              height={300}
+            />
+          </div>
+        </motion.div>
       </div>
+
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        onClick={() => document.querySelector("#chi-sono")?.scrollIntoView({ behavior: "smooth" })}
+        className="absolute bottom-8 inline-flex animate-bounce text-muted-foreground hover:text-primary transition-colors"
+      >
+        <ArrowDown className="h-5 w-5" />
+      </motion.button>
     </section>
+  
   );
 }

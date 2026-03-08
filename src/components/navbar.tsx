@@ -2,7 +2,7 @@
 
 import type { NavItem } from "@/types/portfolio";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Terminal, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[] }) {
@@ -23,8 +23,7 @@ export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[]
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-6">
         <button onClick={() => scrollTo("#home")} className="flex items-center gap-2 font-mono text-sm font-semibold tracking-wider text-primary neon-text">
-          <Terminal className="h-4 w-4" />
-          <span>&gt;_portfolio</span>
+          <span>{brand}</span>
         </button>
 
         {/* Desktop */}

@@ -1,7 +1,8 @@
 import { AboutSection } from "@/components/about-section";
 import { ExperienceSection } from "@/components/experience-section";
+import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
-import { MotionHeader } from "@/components/motion-header";
+import { TopScrollProgress } from "@/components/top-scroll-progress";
 import { Navbar } from "@/components/navbar";
 import { StorySection } from "@/components/story-section";
 import { navItems, portfolioContent } from "@/data/portfolio";
@@ -9,10 +10,10 @@ import { navItems, portfolioContent } from "@/data/portfolio";
 export default function Home() {
 
   return (
-    <main className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
+    <main className="dark min-h-screen bg-background">
       <div className="noise absolute inset-0 z-0" />
 
-      <MotionHeader />
+      <TopScrollProgress />
 
       <div className="grid-bg pointer-events-none absolute inset-0 -z-10 opacity-70" />
 
@@ -23,11 +24,7 @@ export default function Home() {
       <ExperienceSection experiences={portfolioContent.experiences} />
       <StorySection story={portfolioContent.story} />
 
-      <footer className="relative z-10 mx-auto max-w-7xl border-t border-white/10 px-4 py-10 text-center font-mono text-lg text-zinc-400 sm:px-8">
-        <p>
-          © 2026 • {portfolioContent.footerText.split(" ").slice(0, -1).join(" ")} <span className="text-fuchsia-300">{portfolioContent.footerText.split(" ").slice(-1)}</span>
-        </p>
-      </footer>
+      <Footer />
     </main>
   );
 }

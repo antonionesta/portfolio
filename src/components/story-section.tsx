@@ -2,40 +2,47 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { SectionShell } from "@/components/section-shell";
-import { Card } from "@/components/ui/card";
-import type { PortfolioContent, StoryItem } from "@/types/portfolio";
-
-function StoryCard({ item, index }: { item: StoryItem; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24, scale: 0.98 }}
-      animate={inView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 24, scale: 0.98 }}
-      transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.08 }}
-    >
-      <Card className="h-full">
-        <div className="mb-3 flex items-center justify-between">
-          <p className="font-mono text-xl font-semibold text-emerald-300">{item.title}</p>
-          <p className="font-mono text-lg text-zinc-400">{item.year}</p>
-        </div>
-        <p className="text-2xl leading-relaxed text-zinc-300">{item.text}</p>
-      </Card>
-    </motion.div>
-  );
-}
+import type { PortfolioContent } from "@/types/portfolio";
 
 export function StorySection({ story }: { story: PortfolioContent["story"] }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <SectionShell id="storia" eyebrow="La Mia Storia" title={story.title} delay={0.15} className="relative z-10 pb-32">
-      <div className="grid gap-4 lg:grid-cols-4">
-        {story.items.map((item, index) => (
-          <StoryCard key={`${item.year}-${item.title}`} item={item} index={index} />
-        ))}
+    <section id="storia" className="relative py-12 md:py-32">
+      <div className="container px-6 mx-auto" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// la mia storia</p>
+          <h2 className="mb-12 text-3xl font-bold sm:text-4xl">
+            <span className="text-foreground">La Mia</span> <span className="text-primary">Storia</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {story.map(({ icon, year, title, text }, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2 + i * 0.12, duration: 0.5 }}
+              className="group relative rounded-lg border border-border bg-card p-6 transition-all hover:border-primary hover:neon-border"
+            >
+              <div className="mb-4 flex items-center justify-between">
+                {icon}
+                <span className="font-mono text-xs text-muted-foreground">{year}</span>
+              </div>
+              <h3 className="mb-2 text-lg font-semibold text-foreground">{title}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
+              {/* Accent line */}
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-500 group-hover:w-full rounded-b-lg" />
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </SectionShell>
+    </section>
   );
 }

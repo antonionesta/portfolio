@@ -11,12 +11,13 @@ export type NavItem = {
   href: string;
 };
 
-export type AboutSpecialty = {
-  title: string;
-  stack: string;
+export type Skill = {
+  label: string;
+  desc: string;
+  icon: ReactElement
 };
 
-export type ExperienceItem = {
+export type Experience = {
   period: string;
   role: string;
   company: string;
@@ -24,7 +25,8 @@ export type ExperienceItem = {
   stack: string[];
 };
 
-export type StoryItem = {
+export type Story = {
+  icon: ReactElement
   year: string;
   title: string;
   text: string;
@@ -45,16 +47,8 @@ export type PortfolioContent = {
   about: {
     title: string;
     paragraphs: string[];
-    snippet: string[];
-    specialties: AboutSpecialty[];
+    skills: Skill[];
   };
-  experiences: {
-    title: string;
-    items: ExperienceItem[];
-  };
-  story: {
-    title: string;
-    items: StoryItem[];
-  };
-  footerText: string;
+  experiences: Experience[];
+  story: Story[];
 };

@@ -2,53 +2,72 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { SectionShell } from "@/components/section-shell";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
-import type { ExperienceItem, PortfolioContent } from "@/types/portfolio";
-
-function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }) {
-  const rowRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(rowRef, { once: true, margin: "-12% 0px" });
-
-  return (
-    <motion.div
-      ref={rowRef}
-      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-      transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
-      className="relative w-full md:w-[calc(50%-2rem)]"
-    >
-      <Card>
-        <p className="mb-2 font-mono text-xl font-semibold text-emerald-300">{item.period}</p>
-        <h3 className="text-4xl font-semibold text-white">{item.role}</h3>
-        <p className="mb-4 text-3xl text-fuchsia-300">{item.company}</p>
-        <p className="mb-5 text-xl leading-relaxed text-zinc-300">{item.summary}</p>
-        <div className="flex flex-wrap gap-2">
-          {item.stack.map((tech) => (
-            <Badge key={tech}>{tech}</Badge>
-          ))}
-        </div>
-      </Card>
-    </motion.div>
-  );
-}
+import type { PortfolioContent } from "@/types/portfolio";
+import { Briefcase } from "lucide-react";
 
 export function ExperienceSection({ experiences }: { experiences: PortfolioContent["experiences"] }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <SectionShell id="esperienze" eyebrow="Esperienze" title={experiences.title} delay={0.1} className="relative z-10">
-      <div className="relative flex flex-col gap-14">
-        <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-emerald-300/30 md:block" />
-        {experiences.items.map((item, index) => (
-          <div
-            key={`${item.period}-${item.role}`}
-            className={`relative flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
-          >
-            <span className="absolute left-1/2 top-6 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-emerald-300 bg-[#050a14] md:block" />
-            <ExperienceCard item={item} index={index} />
-          </div>
-        ))}
+    <section id="esperienze" className="relative py-12 md:py-32 grid-bg">
+      <div className="container px-6 mx-auto" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// esperienze</p>
+          <h2 className="mb-12 text-3xl font-bold sm:text-4xl">
+            <span className="text-foreground">Le Mie</span> <span className="text-primary">Esperienze</span>
+          </h2>
+        </motion.div>
+
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-4.75 top-0 bottom-0 w-px bg-border md:left-1/2" />
+
+          {experiences.map((exp, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2 + i * 0.15, duration: 0.5 }}
+              className={`relative mb-12 flex flex-col md:flex-row ${
+                i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              }`}
+            >
+              {/* Dot */}
+              <div className="absolute left-3 top-2 z-10 flex size-3.75 items-center justify-center rounded-full border-2 border-primary bg-background md:left-1/2 md:-translate-x-1/2">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+              </div>
+
+              {/* Content */}
+              <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
+                <div className="rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50">
+                  <div className="mb-2 flex items-center gap-2">
+                    <Briefcase className="h-4 w-4 text-primary" />
+                    <span className="font-mono text-xs text-primary">{exp.period}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground">{exp.role}</h3>
+                  <p className="mb-3 font-mono text-sm text-accent neon-purple-text">{exp.company}</p>
+                  <p className="mb-4 text-sm text-muted-foreground">{exp.summary}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.stack.map((s) => (
+                      <span
+                        key={s}
+                        className="rounded-sm border border-border bg-secondary px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </SectionShell>
+    </section>
   );
 }

@@ -1,46 +1,79 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { SectionShell } from "@/components/section-shell";
-import { Card } from "@/components/ui/card";
+import { motion, useInView } from "framer-motion";
 import type { PortfolioContent } from "@/types/portfolio";
+import { useRef } from "react";
 
 export function AboutSection({ about }: { about: PortfolioContent["about"] }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <SectionShell id="chi-sono" eyebrow="Chi Sono" title={about.title} delay={0.05} className="relative z-10">
-      <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <Card className="space-y-5">
-          {about.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="text-2xl leading-relaxed text-zinc-300">
-              {paragraph}
-            </p>
-          ))}
-          <pre className="rounded-xl border border-white/10 bg-[#060b17] p-4 font-mono text-xl text-zinc-300">
-            {about.snippet.map((line, index) => (
-              <p key={`${line}-${index}`} className="leading-8">
-                {line}
+    <section id="chi-sono" className="relative py-12 md:py-32">
+      <div className="container px-6 mx-auto" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-primary">// chi sono</p>
+          <h2 className="mb-12 text-3xl font-bold sm:text-4xl">
+            <span className="text-foreground">About</span> <span className="text-primary">Me</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid gap-12 lg:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="space-y-4 text-muted-foreground leading-relaxed"
+          >
+            {about.paragraphs.map((paragraph) => (
+              <p key={paragraph} >
+                {paragraph}
               </p>
             ))}
-          </pre>
-        </Card>
+            <div className="mt-8 rounded-md border border-border bg-card p-4 font-mono text-xs">
+              <p className="text-muted-foreground">
+                <span className="text-primary">const</span>{" "}
+                <span className="text-accent">developer</span> = {"{"}
+              </p>
+              <p className="pl-4">
+                <span className="text-neon-blue">passione</span>:{" "}
+                <span className="text-primary">"Infinita"</span>,
+              </p>
+              <p className="pl-4">
+                <span className="text-neon-blue">caffè</span>:{" "}
+                <span className="text-primary">"Obbligatorio"</span>,
+              </p>
+              <p className="pl-4">
+                <span className="text-neon-blue">bugFixes</span>:{" "}
+                <span className="text-accent">Infinity</span>
+              </p>
+              <p>{"}"}</p>
+            </div>
+          </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          {about.specialties.map((item, idx) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ delay: idx * 0.08 }}
-            >
-              <Card className="h-full">
-                <p className="mb-3 font-mono text-3xl font-bold text-emerald-300">{item.title}</p>
-                <p className="text-xl text-zinc-400">{item.stack}</p>
-              </Card>
-            </motion.div>
-          ))}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="grid grid-cols-2 gap-4"
+          >
+            {about.skills.map(({ icon, label, desc }, i) => (
+              <div
+                key={i}
+                className="group rounded-lg border border-border bg-card p-6 transition-all hover:border-primary hover:neon-border"
+              >
+                {icon}
+                <h3 className="mb-1 font-semibold text-foreground">{label}</h3>
+                <p className="font-mono text-xs text-muted-foreground">{desc}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
-    </SectionShell>
+    </section>    
   );
 }
