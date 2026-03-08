@@ -28,7 +28,6 @@ export type Experience = {
 
 export type Story = {
   icon: ReactElement
-  year: string;
   title: string;
   text: string;
 };

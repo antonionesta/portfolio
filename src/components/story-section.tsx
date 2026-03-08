@@ -23,7 +23,7 @@ export function StorySection({ story }: { story: PortfolioContent["story"] }) {
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {story.map(({ icon, year, title, text }, i) => (
+          {story.map(({ icon, title, text }, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
@@ -31,11 +31,10 @@ export function StorySection({ story }: { story: PortfolioContent["story"] }) {
               transition={{ delay: 0.2 + i * 0.12, duration: 0.5 }}
               className="group relative overflow-hidden rounded-lg border border-border bg-card p-6 transition-all hover:border-primary hover:neon-border"
             >
-              <div className="mb-4 flex items-center justify-between">
+              <div className="mb-3 flex items-center gap-3">
                 {icon}
-                <span className="font-mono text-xs text-muted-foreground">{year}</span>
+                <h3 className="text-lg font-semibold text-foreground">{title}</h3>
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-foreground">{title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
               {/* Accent line */}
               <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-500 group-hover:w-full rounded-b-lg" />
