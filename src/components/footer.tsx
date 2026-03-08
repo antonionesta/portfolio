@@ -13,7 +13,7 @@ export function Footer() {
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.4 }}
-                className="mt-32 border-t border-border pt-8 text-center"
+                className="mt-0 md:mt-32 border-t border-border pt-8 text-center"
             >
                 <p className="font-mono text-xs text-muted-foreground">
                     &copy; {new Date().getFullYear()} · Made with{" "}

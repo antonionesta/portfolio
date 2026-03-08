@@ -131,7 +131,11 @@ body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 body {
   scroll-behavior: smooth;
 }

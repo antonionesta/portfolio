@@ -1,5 +1,6 @@
 "use client";
 
+import { scrollToSection } from "@/lib/scroll-to-section";
 import type { PortfolioContent } from "@/types/portfolio";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -79,15 +80,19 @@ export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
         </motion.div>
       </div>
 
-      <motion.button
+      <motion.a
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
+        href="#about"
+        onClick={(event) => {
+          event.preventDefault();
+          scrollToSection("#about");
+        }}
         className="absolute bottom-8 inline-flex animate-bounce text-muted-foreground hover:text-primary transition-colors"
       >
         <ArrowDown className="h-5 w-5" />
-      </motion.button>
+      </motion.a>
     </section>
   
   );

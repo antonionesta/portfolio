@@ -10,7 +10,7 @@ export function ExperienceSection({ experiences }: { experiences: PortfolioConte
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experiences" className="relative py-12 md:py-32 grid-bg">
+    <section id="experiences" className="relative py-8 md:py-32 grid-bg scroll-mt-24">
       <div className="container px-6 mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, x: -30 }}

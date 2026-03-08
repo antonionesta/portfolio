@@ -9,7 +9,7 @@ export function StorySection({ story }: { story: PortfolioContent["story"] }) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="story" className="relative py-12 md:py-32">
+    <section id="story" className="relative py-8 md:py-32 scroll-mt-24">
       <div className="container px-6 mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, x: -30 }}
