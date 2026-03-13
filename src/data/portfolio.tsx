@@ -46,7 +46,7 @@ export const portfolioContent: PortfolioContent = {
   about: {
     title: "About Me",
     paragraphs: [
-      "Appassionato di informatica e tecnologia in generale, attualmente mi occupo dello sviluppo di web app. Mi ritengo principalmente uno sviluppatore frontend, dato che e l'ambito in cui sono maggiormente formato, ma sviluppo anche lato backend.",
+      "Appassionato di informatica e tecnologia in generale, attualmente mi occupo dello sviluppo di web app. Mi ritengo principalmente uno sviluppatore frontend, dato che è l'ambito in cui sono maggiormente formato, ma sviluppo anche lato backend.",
       "Attualmente utilizzo quotidianamente i framework Angular e Spring Boot. Lato frontend, gestire applicativi enterprise di una certa dimensione è un compito abbastanza arduo, per questo non riesco a fare a meno di Tanstack Query, uno state manager asincrono solido e performante.",
       "Ho avuto modo di conoscere anche altre librerie e framework, sia per lavoro che per progetti personali: React, Next.js, StencilJs e molti altri. Ho anche scritto una piccola app con Flutter."
     ],
