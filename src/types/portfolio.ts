@@ -23,7 +23,7 @@ export type Experience = {
   company: string;
   summary: string;
   highlights: string[];
-  stack: string[];
+  tags: string[];
 };
 
 export type Story = {
@@ -38,7 +38,7 @@ export type PortfolioContent = {
     greeting: string;
     firstName: string;
     lastName: string;
-    roles: string[];
+    taglines: string[];
     summary: string;
     ctaPrimary: { label: string; href: string };
     ctaSecondary: { label: string; href: string };

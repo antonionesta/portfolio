@@ -41,7 +41,7 @@ export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
             transition={{ delay: 0.6 }}
             className="mx-auto mb-8 max-w-xl font-mono text-sm leading-relaxed text-muted-foreground sm:text-base md:mx-0"
           >
-            {hero.roles.join("  •  ")}
+            {hero.taglines.join("  •  ")}
           </motion.p>
 
           <motion.div

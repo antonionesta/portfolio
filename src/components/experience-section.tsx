@@ -56,7 +56,7 @@ export function ExperienceSection({ experiences }: { experiences: PortfolioConte
                     ))}
                   </ul>
                   <div className="flex flex-wrap gap-2">
-                    {exp.stack.map((s) => (
+                    {exp.tags.map((s) => (
                       <span
                         key={s}
                         className="rounded-sm border border-border bg-secondary px-2 py-0.5 font-mono text-[10px] text-muted-foreground"

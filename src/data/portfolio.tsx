@@ -25,7 +25,7 @@ export const portfolioContent: PortfolioContent = {
     greeting: "ciao, mi chiamo",
     firstName: "Antonio",
     lastName: "Nesta",
-    roles: ["Team Leader Frontend", "Software Engineer", "Tech Enthusiast"],
+    taglines: ["Team Leader Frontend", "Software Engineer", "Tech Enthusiast"],
     summary:
       "Costruisco frontend solidi, veloci e scalabili.",
     ctaPrimary: { label: "Scopri Chi Sono", href: "#about" },
@@ -96,7 +96,7 @@ export const portfolioContent: PortfolioContent = {
         "Gestione dello stato applicativo e data fetching con TanStack Query.",
         "Implementazione di test unitari ed e2e con Vitest."
       ],
-      stack: ["Angular", "Spring Boot", "Tanstack Query", "Vitest"],
+      tags: ["Angular", "Spring Boot", "Tanstack Query", "Vitest"],
     },
     {
       period: "Giugno 2016",
@@ -111,7 +111,7 @@ export const portfolioContent: PortfolioContent = {
         "Gestione dei contenuti e della struttura del sito tramite OpenCart, Infinity Portal e Magento.",
         "Supporto alle attività marketing con monitoraggio campagne in Google Analytics e AdWords.",
       ],
-      stack: ["Magento", "OpenCart", "Infinity Portal", "Amazon", "eBay", "Google Analytics", "AdWords"],
+      tags: ["Magento", "OpenCart", "Infinity Portal", "Amazon", "eBay", "Google Analytics", "AdWords"],
     },
     {
       period: "Settembre 2015",
@@ -126,7 +126,7 @@ export const portfolioContent: PortfolioContent = {
         "Diagnostica avanzata con strumenti di test per l'analisi delle cause radice.",
         "Configurazione e amministrazione di reti LAN/Wi-Fi domestiche per utenti privati.",
       ],
-      stack: ["Diagnostica", "Troubleshooting", "Networking LAN", "Smartphone", "Tablet"],
+      tags: ["Diagnostica", "Troubleshooting", "Networking LAN", "Smartphone", "Tablet"],
     },
   ],
   story: [
