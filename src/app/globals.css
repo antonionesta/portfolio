@@ -221,3 +221,10 @@ code, .font-mono {
 button:not(:disabled) {
   cursor: pointer;
 }
+
+/* Rispetta prefers-reduced-motion per le animazioni CSS native (non gestite da framer-motion) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-bounce {
+    animation: none;
+  }
+}
