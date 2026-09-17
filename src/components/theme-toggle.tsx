@@ -38,7 +38,7 @@ export function ThemeToggle() {
       type="button"
       aria-label={`Attiva tema ${theme === "dark" ? "chiaro" : "scuro"}`}
       onClick={toggleTheme}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-muted-foreground outline-none transition-colors hover:text-primary focus-visible:border-white/80"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-muted-foreground outline-none transition-colors hover:text-primary focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>
