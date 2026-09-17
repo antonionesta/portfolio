@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-17T00:00:00.000Z",
+  "generatedAt": "2026-09-17T12:00:00.000Z",
   "title": "Design System: Antonio Nesta Portfolio",
   "extensions": {
     "colorMeta": {
@@ -111,7 +111,13 @@
         "role": "neutral",
         "displayName": "Muted foreground (dark theme)",
         "canonical": "hsl(215 15% 57%)",
-        "note": "Raised from hsl(215 15% 50%) to hsl(215 15% 57%) lightness to clear WCAG AA 4.5:1 on both card (5.37:1) and secondary/tag-chip (4.51:1) dark-theme backgrounds."
+        "note": "Raised from hsl(215 15% 50%) to hsl(215 15% 57%) lightness to clear WCAG AA 4.5:1 on both card (5.39:1) and secondary/tag-chip (4.53:1) dark-theme backgrounds."
+      },
+      "muted-foreground-light": {
+        "role": "neutral",
+        "displayName": "Muted foreground (light theme)",
+        "canonical": "oklch(0.53 0.016 285.938)",
+        "note": "Lowered from oklch(0.552 ...) to oklch(0.53 ...) lightness after a live-site measurement found 4.39:1 on secondary/tag-chip (below WCAG AA 4.5:1). Now 5.27:1 on card and 4.79:1 on secondary/tag-chip."
       }
     },
     "typographyMeta": {
@@ -147,9 +153,9 @@
     {
       "name": "Icon Link",
       "kind": "button",
-      "description": "Pattern reale usato per i link social nell'hero e per il toggle tema in navbar: quadrato con angoli morbidi, bordo netto, bagliore neon on-hover.",
+      "description": "Pattern reale usato per i link social nell'hero e per il toggle tema in navbar: quadrato con angoli morbidi, bordo netto, bagliore neon on-hover. 44px per rispettare la soglia minima dei touch target mobile (era 40px).",
       "html": "<a class=\"ds-icon-link\" href=\"#\" aria-label=\"GitHub\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"></circle><path d=\"M9 12h6M12 9v6\"></path></svg></a>",
-      "css": ".ds-icon-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; border: 1px solid oklch(1 0 0 / 10%); background: oklch(0.274 0.006 286.033 / 0.5); color: hsl(215 15% 57%); transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-icon-link:hover, .ds-icon-link:focus-visible { border-color: hsl(160 100% 50%); color: hsl(160 100% 50%); box-shadow: 0 0 10px hsl(160 100% 50% / 0.3), inset 0 0 10px hsl(160 100% 50% / 0.1); } .ds-icon-link:focus-visible { outline: none; }"
+      "css": ".ds-icon-link { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 6px; border: 1px solid oklch(1 0 0 / 10%); background: oklch(0.274 0.006 286.033 / 0.5); color: hsl(215 15% 57%); transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-icon-link:hover, .ds-icon-link:focus-visible { border-color: hsl(160 100% 50%); color: hsl(160 100% 50%); box-shadow: 0 0 10px hsl(160 100% 50% / 0.3), inset 0 0 10px hsl(160 100% 50% / 0.1); } .ds-icon-link:focus-visible { outline: none; }"
     },
     {
       "name": "Surface Card",

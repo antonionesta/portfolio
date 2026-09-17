@@ -121,6 +121,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`${displayFont.variable} ${monoFont.variable} antialiased`}>
+        <a
+          href="#home"
+          className="sr-only rounded-md border border-primary bg-background px-4 py-2 font-mono text-sm text-primary outline-none focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus-visible:ring-3 focus-visible:ring-ring/50"
+        >
+          Vai al contenuto principale
+        </a>
         <MotionConfig reducedMotion="user">
           {children}
         </MotionConfig>

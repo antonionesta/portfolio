@@ -16,7 +16,7 @@ colors:
   secondary-dark: "oklch(0.274 0.006 286.033)"
   secondary-light: "oklch(0.967 0.001 286.375)"
   muted-foreground-dark: "hsl(215 15% 57%)"
-  muted-foreground-light: "oklch(0.552 0.016 285.938)"
+  muted-foreground-light: "oklch(0.53 0.016 285.938)"
   border-dark: "oklch(1 0 0 / 10%)"
   border-light: "hsl(220 18% 86%)"
 typography:
@@ -117,7 +117,7 @@ Palette ristretta e ad alto contrasto: quasi tutta la superficie è neutra (back
 - **Surface** (`oklch(0.141 0.005 285.823)` dark / `oklch(1 0 0)` light): sfondo principale della pagina.
 - **Card** (`oklch(0.21 0.006 285.885)` dark / `oklch(1 0 0)` light): superficie di card, con bordo a fare la differenza rispetto allo sfondo più che il colore stesso.
 - **Secondary surface** (`oklch(0.274 0.006 286.033)` dark / `oklch(0.967 0.001 286.375)` light): sfondo dei tag/chip e delle icone social a riposo.
-- **Muted foreground** (`hsl(215 15% 57%)` dark / `oklch(0.552 0.016 285.938)` light): testo secondario — paragrafi, descrizioni, label mono non evidenziate. Il valore del tema scuro è stato alzato da `50%` a `57%` di lightness per portare il testo mutato sopra la soglia AA 4.5:1 sia su sfondo card (5.37:1) sia su sfondo secondario/tag (4.51:1), mantenendo comunque la resa "smorzata" rispetto al testo primario.
+- **Muted foreground** (`hsl(215 15% 57%)` dark / `oklch(0.53 0.016 285.938)` light): testo secondario — paragrafi, descrizioni, label mono non evidenziate. Il valore del tema scuro è stato alzato da `50%` a `57%` di lightness per portare il testo mutato sopra la soglia AA 4.5:1 sia su sfondo card (5.39:1) sia su sfondo secondario/tag (4.53:1). Il valore del tema chiaro è stato corretto allo stesso modo, da `55.2%` a `53%` di lightness, dopo che una misura diretta sul sito live ha rilevato 4.39:1 su sfondo secondario/tag (sotto soglia AA): ora è 5.27:1 su card e 4.79:1 su secondario/tag, mantenendo comunque la resa "smorzata" rispetto al testo primario.
 - **Border** (`oklch(1 0 0 / 10%)` dark / `hsl(220 18% 86%)` light): unico strumento di separazione tra superfici; niente ombre a riposo.
 
 ### Named Rules
@@ -181,7 +181,7 @@ Angoli morbidi ma contenuti: raggio base 8px (`--radius`), con una scala che va 
 - **Stato:** solo a riposo; nessuna interazione propria, sono etichette informative non cliccabili.
 
 ### Icon links (social nell'hero, toggle tema)
-- **Shape:** contenitore quadrato/circolare 40px, bordo netto, sfondo secondario tenue.
+- **Shape:** contenitore quadrato/circolare 44px, bordo netto, sfondo secondario tenue. Portato da 40px a 44px per rispettare la soglia minima dei touch target mobile; stessa dimensione già usata dal toggle menu mobile in navbar, ora coerente su tutti i controlli icona-soltanto del sito.
 - **Hover:** bordo e icona passano a Terminal Green, con `neon-border` sulle icone social.
 - **Uso:** unico pattern di "azione" realmente presente sulla pagina, insieme ai link di navigazione.
 

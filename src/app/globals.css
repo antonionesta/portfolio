@@ -5,8 +5,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --surface: #070b16;
-  --surface-soft: rgba(15, 23, 42, 0.7);
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
@@ -18,7 +16,7 @@
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
+  --muted-foreground: oklch(0.53 0.016 285.938);
   --accent: hsl(270 80% 50%);
   --accent-foreground: hsl(210 20% 95%);
   --destructive: oklch(0.577 0.245 27.325);
@@ -239,9 +237,27 @@ button:not(:disabled) {
   animation: scroll-cue 1.8s ease-in-out infinite;
 }
 
+/* Fade-in del titolo hero in CSS puro: parte al parse dello stylesheet invece
+   che dopo l'hydration di React, cosi' l'LCP non aspetta il bundle JS. */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-fade-up {
+  animation: hero-fade-up 0.6s ease-out 0.4s both;
+}
+
 /* Rispetta prefers-reduced-motion per le animazioni CSS native (non gestite da framer-motion) */
 @media (prefers-reduced-motion: reduce) {
-  .animate-scroll-cue {
+  .animate-scroll-cue,
+  .animate-hero-fade-up {
     animation: none;
   }
 }
