@@ -65,6 +65,18 @@
           "oklch(95% 0.05 300)"
         ]
       },
+      "terminal-green-glow": {
+        "role": "decorative",
+        "displayName": "Terminal Green Glow",
+        "canonical": "rgba(124, 255, 107, 0.28)",
+        "usage": "Bagliore orbitante sfocato (blur-3xl) dietro la barra di progresso in alto (TopScrollProgress). Tinta vicina a Terminal Green ma tarata a mano (più lime/calda) per leggere bene attraverso lo sfocamento; nessun requisito di contrasto, mai usata su testo o elementi interattivi."
+      },
+      "signal-violet-glow": {
+        "role": "decorative",
+        "displayName": "Signal Violet Glow",
+        "canonical": "rgba(160, 107, 255, 0.3)",
+        "usage": "Bagliore orbitante sfocato (blur-3xl) dietro la barra di progresso in alto (TopScrollProgress), accoppiato a Terminal Green Glow. Tinta vicina a Signal Violet, tarata a mano per l'effetto radiale; nessun requisito di contrasto, mai usata su testo o elementi interattivi."
+      },
       "surface-dark": {
         "role": "neutral",
         "displayName": "Surface (dark)",
@@ -106,7 +118,8 @@
       "display": { "displayName": "Display", "purpose": "Nome e cognome nell'hero. Unico punto in cui il testo raggiunge la scala massima." },
       "headline": { "displayName": "Headline", "purpose": "Titolo di ciascuna sezione principale (Chi Sono, Esperienze, La Mia Storia)." },
       "body": { "displayName": "Body", "purpose": "Paragrafi descrittivi: about, summary, highlights, storia." },
-      "label": { "displayName": "Label / Mono", "purpose": "Prompt di sezione, voci di navigazione, periodo esperienza, tag tecnologici." }
+      "label": { "displayName": "Label / Mono", "purpose": "Prompt di sezione, voci di navigazione, periodo esperienza." },
+      "label-sm": { "displayName": "Label Small / Mono", "purpose": "Tag tecnologici nella timeline Esperienze (tag-chip): stesso font della Label ma a 10px, senza tracciato largo." }
     },
     "shadows": [
       { "name": "neon-border", "value": "0 0 10px hsl(160 100% 50% / 0.3), inset 0 0 10px hsl(160 100% 50% / 0.1)", "purpose": "Feedback hover su card e icon-link: comunica che l'elemento reagisce." },
@@ -136,7 +149,7 @@
       "kind": "button",
       "description": "Pattern reale usato per i link social nell'hero e per il toggle tema in navbar: quadrato con angoli morbidi, bordo netto, bagliore neon on-hover.",
       "html": "<a class=\"ds-icon-link\" href=\"#\" aria-label=\"GitHub\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"></circle><path d=\"M9 12h6M12 9v6\"></path></svg></a>",
-      "css": ".ds-icon-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; border: 1px solid oklch(1 0 0 / 10%); background: oklch(0.274 0.006 286.033 / 0.5); color: hsl(215 15% 50%); transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-icon-link:hover, .ds-icon-link:focus-visible { border-color: hsl(160 100% 50%); color: hsl(160 100% 50%); box-shadow: 0 0 10px hsl(160 100% 50% / 0.3), inset 0 0 10px hsl(160 100% 50% / 0.1); } .ds-icon-link:focus-visible { outline: none; }"
+      "css": ".ds-icon-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; border: 1px solid oklch(1 0 0 / 10%); background: oklch(0.274 0.006 286.033 / 0.5); color: hsl(215 15% 57%); transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-icon-link:hover, .ds-icon-link:focus-visible { border-color: hsl(160 100% 50%); color: hsl(160 100% 50%); box-shadow: 0 0 10px hsl(160 100% 50% / 0.3), inset 0 0 10px hsl(160 100% 50% / 0.1); } .ds-icon-link:focus-visible { outline: none; }"
     },
     {
       "name": "Surface Card",
@@ -157,7 +170,7 @@
       "name": "Tag Chip",
       "kind": "chip",
       "refersTo": "tag-chip",
-      "description": "Etichetta informativa non cliccabile per le tecnologie/competenze associate a un'esperienza.",
+      "description": "Etichetta informativa non cliccabile per le tecnologie/competenze associate a un'esperienza. Usa lo step tipografico Label Small (10px).",
       "html": "<span class=\"ds-tag\">Angular</span>",
       "css": ".ds-tag { display: inline-block; border-radius: 5px; border: 1px solid oklch(1 0 0 / 10%); background: oklch(0.274 0.006 286.033); padding: 2px 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: hsl(215 15% 57%); }"
     },

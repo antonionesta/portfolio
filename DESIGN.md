@@ -6,6 +6,8 @@ colors:
   terminal-green-light: "oklch(0.508 0.118 165.612)"
   signal-violet: "hsl(270 100% 65%)"
   signal-violet-light: "hsl(270 80% 50%)"
+  terminal-green-glow: "rgba(124, 255, 107, 0.28)"
+  signal-violet-glow: "rgba(160, 107, 255, 0.3)"
   primary-foreground: "oklch(0.979 0.021 166.113)"
   surface-dark: "oklch(0.141 0.005 285.823)"
   surface-light: "oklch(1 0 0)"
@@ -39,6 +41,11 @@ typography:
     fontSize: "0.75rem"
     fontWeight: 500
     letterSpacing: "0.1em"
+  label-sm:
+    fontFamily: "JetBrains Mono, monospace"
+    fontSize: "0.625rem"
+    fontWeight: 400
+    letterSpacing: "normal"
 rounded:
   sm: "5px"
   md: "6px"
@@ -64,7 +71,7 @@ components:
   tag-chip:
     backgroundColor: "{colors.secondary-dark}"
     textColor: "{colors.muted-foreground-dark}"
-    typography: "{typography.label}"
+    typography: "{typography.label-sm}"
     rounded: "{rounded.sm}"
     padding: "2px 8px"
   button-primary:
@@ -103,6 +110,9 @@ Palette ristretta e ad alto contrasto: quasi tutta la superficie è neutra (back
 ### Secondary
 - **Signal Violet** (`hsl(270 100% 65%)` in dark, `hsl(270 80% 50%)` in light): nota secondaria, usata per il nome azienda nella timeline Esperienze (`neon-purple-text`) e per i bagliori diffusi di sfondo (hero, barra di progresso in alto). Segnala un dato "di contorno" rispetto al verde primario, mai un'azione. Come per Terminal Green, in light mode il token usa una variante più scura e satura (`hsl(270 80% 50%)`, 6.58:1 su bianco) invece del valore acceso del tema scuro: il viola acceso originale scende sotto la soglia AA (4.11:1) su sfondo bianco, quindi light e dark ora hanno valori `--accent` distinti, sullo stesso modello già usato per Terminal Green.
 
+### Glow variants
+- **Terminal Green Glow** (`terminal-green-glow`, `rgba(124, 255, 107, 0.28)`) e **Signal Violet Glow** (`signal-violet-glow`, `rgba(160, 107, 255, 0.3)`): varianti tonalmente vicine a Terminal Green e Signal Violet ma tarate a mano (tinta più calda/fredda, alpha bassa) per l'effetto di bagliore orbitante sfocato dietro la barra di progresso in alto (`TopScrollProgress`). Sono valori decorativi puri, senza requisiti di contrasto/accessibilità: usati solo su `blur-3xl`, mai su testo o elementi interattivi.
+
 ### Neutral
 - **Surface** (`oklch(0.141 0.005 285.823)` dark / `oklch(1 0 0)` light): sfondo principale della pagina.
 - **Card** (`oklch(0.21 0.006 285.885)` dark / `oklch(1 0 0)` light): superficie di card, con bordo a fare la differenza rispetto allo sfondo più che il colore stesso.
@@ -124,7 +134,8 @@ Palette ristretta e ad alto contrasto: quasi tutta la superficie è neutra (back
 - **Display** (700, `clamp(3rem, 8vw, 6rem)`, line-height 1): nome e cognome nell'hero, unico posto dove il testo raggiunge la scala massima.
 - **Headline** (700, `clamp(1.875rem, 4vw, 2.25rem)`, line-height 1.2): titolo di ogni sezione (Chi Sono, Esperienze, La Mia Storia), sempre bicolore (neutro + verde primario sull'ultima parola).
 - **Body** (400, 16px, line-height 1.625): paragrafi di About, summary e highlights delle esperienze, testo delle card di Storia.
-- **Label** (500, 12px, letter-spacing largo, maiuscolo): prompt `// section-name`, voci di navigazione, periodo dell'esperienza, tag tecnologici — sempre in mono.
+- **Label** (500, 12px, letter-spacing largo, maiuscolo): prompt `// section-name`, voci di navigazione, periodo dell'esperienza — sempre in mono.
+- **Label Small** (400, 10px, letter-spacing normale): step più piccolo della scala, riservato ai tag tecnologici nella timeline Esperienze (`tag-chip`); stessa voce mono della Label ma senza il tracciato largo, per restare leggibile a dimensione ridotta in un gruppo di chip fitte.
 
 ### Named Rules
 **The Prompt Rule.** Ogni sezione principale si apre con una riga mono in stile prompt (`// about me`) prima del titolo display: è la firma ricorrente che rende riconoscibile l'inizio di ogni blocco di contenuto.
@@ -163,10 +174,10 @@ Angoli morbidi ma contenuti: raggio base 8px (`--radius`), con una scala che va 
 - **Shape:** stesso linguaggio delle card standard (8px, bordo netto), ma agganciata a un nodo circolare sulla linea temporale verticale (bordo Terminal Green, punto pieno interno).
 - **Disposizione:** alternata sinistra/destra da tablet in su; colonna singola con nodi allineati a sinistra su mobile.
 - **Hover:** solo il bordo si scalda verso Terminal Green (senza bagliore pieno), per restare leggibile in una lista lunga.
-- **Gerarchia interna:** periodo (mono, Terminal Green) → ruolo (headline) → azienda (mono, Signal Violet) → summary (body muto) → highlights (lista puntata) → tag tecnologici (chip).
+- **Gerarchia interna:** periodo (mono, Terminal Green) → ruolo (headline) → azienda (mono, Signal Violet) → summary (body muto) → highlights (lista puntata) → tag tecnologici (chip, Label Small).
 
 ### Tags / Chip (tecnologie in Esperienze)
-- **Style:** sfondo secondario neutro, bordo netto, testo mono minuscolo (10px), angoli quasi squadrati (~5px).
+- **Style:** sfondo secondario neutro, bordo netto, testo mono minuscolo (10px, step `label-sm`), angoli quasi squadrati (~5px).
 - **Stato:** solo a riposo; nessuna interazione propria, sono etichette informative non cliccabili.
 
 ### Icon links (social nell'hero, toggle tema)
