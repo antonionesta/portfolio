@@ -39,9 +39,6 @@ export type PortfolioContent = {
     firstName: string;
     lastName: string;
     taglines: string[];
-    summary: string;
-    ctaPrimary: { label: string; href: string };
-    ctaSecondary: { label: string; href: string };
     socialLinks: SocialLink[];
   };
   about: {

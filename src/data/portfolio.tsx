@@ -26,10 +26,6 @@ export const portfolioContent: PortfolioContent = {
     firstName: "Antonio",
     lastName: "Nesta",
     taglines: ["Team Leader Frontend", "Software Engineer", "Tech Enthusiast"],
-    summary:
-      "Costruisco frontend solidi, veloci e scalabili.",
-    ctaPrimary: { label: "Scopri Chi Sono", href: "#about" },
-    ctaSecondary: { label: "Vedi Esperienze", href: "#experiences" },
     socialLinks: [
       {
         label: "GitHub",
