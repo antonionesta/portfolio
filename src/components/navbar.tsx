@@ -61,7 +61,14 @@ export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[]
         <div className="flex items-center gap-2">
           <ThemeToggle />
           {/* Toggle mobile */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-foreground">
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-transparent text-foreground outline-none transition-colors hover:text-primary focus-visible:border-primary md:hidden"
+          >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
@@ -71,6 +78,7 @@ export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[]
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
