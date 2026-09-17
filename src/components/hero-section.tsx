@@ -75,6 +75,7 @@ export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
               alt="Foto profilo"
               width={300}
               height={300}
+              priority
             />
           </div>
         </motion.div>
