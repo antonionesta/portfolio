@@ -20,7 +20,7 @@
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: hsl(270 100% 65%);
+  --accent: hsl(270 80% 50%);
   --accent-foreground: hsl(210 20% 95%);
   --destructive: oklch(0.577 0.245 27.325);
   --border: hsl(220 18% 86%);
@@ -153,7 +153,7 @@ code, .font-mono {
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: hsl(220 16% 14%);
-  --muted-foreground: hsl(215 15% 50%);
+  --muted-foreground: hsl(215 15% 57%);
   --accent: hsl(270 100% 65%);
   --accent-foreground: hsl(210 20% 95%);
   --destructive: oklch(0.704 0.191 22.216);
@@ -217,4 +217,11 @@ code, .font-mono {
 
 button:not(:disabled) {
   cursor: pointer;
+}
+
+/* Rispetta prefers-reduced-motion per le animazioni CSS native (non gestite da framer-motion) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-bounce {
+    animation: none;
+  }
 }

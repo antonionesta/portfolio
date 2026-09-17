@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { MotionConfig } from "framer-motion";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://antonionesta.dev";
 const metadataBase = new URL(siteUrl);
@@ -120,7 +121,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${displayFont.variable} ${monoFont.variable} antialiased`}>
-        {children}
+        <MotionConfig reducedMotion="user">
+          {children}
+        </MotionConfig>
         <Analytics />
         <SpeedInsights />
       </body>

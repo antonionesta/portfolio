@@ -5,6 +5,7 @@ colors:
   terminal-green: "hsl(160 100% 50%)"
   terminal-green-light: "oklch(0.508 0.118 165.612)"
   signal-violet: "hsl(270 100% 65%)"
+  signal-violet-light: "hsl(270 80% 50%)"
   terminal-green-glow: "rgba(124, 255, 107, 0.28)"
   signal-violet-glow: "rgba(160, 107, 255, 0.3)"
   primary-foreground: "oklch(0.979 0.021 166.113)"
@@ -14,7 +15,7 @@ colors:
   card-light: "oklch(1 0 0)"
   secondary-dark: "oklch(0.274 0.006 286.033)"
   secondary-light: "oklch(0.967 0.001 286.375)"
-  muted-foreground-dark: "hsl(215 15% 50%)"
+  muted-foreground-dark: "hsl(215 15% 57%)"
   muted-foreground-light: "oklch(0.552 0.016 285.938)"
   border-dark: "oklch(1 0 0 / 10%)"
   border-light: "hsl(220 18% 86%)"
@@ -107,7 +108,7 @@ Palette ristretta e ad alto contrasto: quasi tutta la superficie è neutra (back
 - **Terminal Green** (`hsl(160 100% 50%)` in dark, `oklch(0.508 0.118 165.612)` in light): colore di firma del sistema. Marca il cognome nell'hero, le etichette `//` a inizio sezione, la parola evidenziata nei titoli di sezione, lo stato attivo/hover di link e bordi. In light mode la stessa risorsa diventa un teal smorzato invece del verde acceso, per restare leggibile su sfondo chiaro senza perdere identità.
 
 ### Secondary
-- **Signal Violet** (`hsl(270 100% 65%)`): nota secondaria, usata per il nome azienda nella timeline Esperienze (`neon-purple-text`) e per i bagliori diffusi di sfondo (hero, barra di progresso in alto). Segnala un dato "di contorno" rispetto al verde primario, mai un'azione.
+- **Signal Violet** (`hsl(270 100% 65%)` in dark, `hsl(270 80% 50%)` in light): nota secondaria, usata per il nome azienda nella timeline Esperienze (`neon-purple-text`) e per i bagliori diffusi di sfondo (hero, barra di progresso in alto). Segnala un dato "di contorno" rispetto al verde primario, mai un'azione. Come per Terminal Green, in light mode il token usa una variante più scura e satura (`hsl(270 80% 50%)`, 6.58:1 su bianco) invece del valore acceso del tema scuro: il viola acceso originale scende sotto la soglia AA (4.11:1) su sfondo bianco, quindi light e dark ora hanno valori `--accent` distinti, sullo stesso modello già usato per Terminal Green.
 
 ### Glow variants
 - **Terminal Green Glow** (`terminal-green-glow`, `rgba(124, 255, 107, 0.28)`) e **Signal Violet Glow** (`signal-violet-glow`, `rgba(160, 107, 255, 0.3)`): varianti tonalmente vicine a Terminal Green e Signal Violet ma tarate a mano (tinta più calda/fredda, alpha bassa) per l'effetto di bagliore orbitante sfocato dietro la barra di progresso in alto (`TopScrollProgress`). Sono valori decorativi puri, senza requisiti di contrasto/accessibilità: usati solo su `blur-3xl`, mai su testo o elementi interattivi.
@@ -116,7 +117,7 @@ Palette ristretta e ad alto contrasto: quasi tutta la superficie è neutra (back
 - **Surface** (`oklch(0.141 0.005 285.823)` dark / `oklch(1 0 0)` light): sfondo principale della pagina.
 - **Card** (`oklch(0.21 0.006 285.885)` dark / `oklch(1 0 0)` light): superficie di card, con bordo a fare la differenza rispetto allo sfondo più che il colore stesso.
 - **Secondary surface** (`oklch(0.274 0.006 286.033)` dark / `oklch(0.967 0.001 286.375)` light): sfondo dei tag/chip e delle icone social a riposo.
-- **Muted foreground** (`hsl(215 15% 50%)` dark / `oklch(0.552 0.016 285.938)` light): testo secondario — paragrafi, descrizioni, label mono non evidenziate.
+- **Muted foreground** (`hsl(215 15% 57%)` dark / `oklch(0.552 0.016 285.938)` light): testo secondario — paragrafi, descrizioni, label mono non evidenziate. Il valore del tema scuro è stato alzato da `50%` a `57%` di lightness per portare il testo mutato sopra la soglia AA 4.5:1 sia su sfondo card (5.37:1) sia su sfondo secondario/tag (4.51:1), mantenendo comunque la resa "smorzata" rispetto al testo primario.
 - **Border** (`oklch(1 0 0 / 10%)` dark / `hsl(220 18% 86%)` light): unico strumento di separazione tra superfici; niente ombre a riposo.
 
 ### Named Rules
@@ -203,6 +204,7 @@ Angoli morbidi ma contenuti: raggio base 8px (`--radius`), con una scala che va 
 - **Do** usare il bordo (`border-border`), non l'ombra, come strumento primario per separare le superfici a riposo.
 - **Do** riservare il bagliore pieno (`neon-border`, `neon-avatar`) a stati di interazione o a un singolo elemento permanentemente enfatizzato (l'avatar); su liste lunghe (timeline) preferire il solo cambio di colore del bordo per non affaticare l'occhio.
 - **Do** mantenere il viola (Signal Violet) come dato secondario (azienda, bagliori ambientali), mai come colore di un'azione primaria.
+- **Do** verificare il contrasto testo/sfondo (≥4.5:1 per testo normale, WCAG AA) ogni volta che si introduce o modifica un token colore, specialmente per combinazioni testo-su-superficie-neutra come `muted-foreground` su `card`/`secondary`.
 
 ### Don't:
 - **Don't** aggiungere ombre generiche (`box-shadow` neutro/grigio) per simulare profondità: la profondità qui è solo bordo + bagliore neon colorato.
