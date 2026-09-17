@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-17T00:00:00.000Z",
+  "title": "Design System: Antonio Nesta Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "terminal-green": {
+        "role": "primary",
+        "displayName": "Terminal Green",
+        "canonical": "hsl(160 100% 50%)",
+        "tonalRamp": [
+          "oklch(15% 0.05 160)",
+          "oklch(25% 0.09 160)",
+          "oklch(35% 0.13 160)",
+          "oklch(45% 0.17 160)",
+          "oklch(55% 0.20 160)",
+          "oklch(65% 0.22 160)",
+          "oklch(80% 0.18 160)",
+          "oklch(95% 0.06 160)"
+        ]
+      },
+      "terminal-green-light": {
+        "role": "primary",
+        "displayName": "Terminal Green (light theme)",
+        "canonical": "oklch(0.508 0.118 165.612)",
+        "tonalRamp": [
+          "oklch(15% 0.04 165)",
+          "oklch(25% 0.06 165)",
+          "oklch(35% 0.08 165)",
+          "oklch(45% 0.10 165)",
+          "oklch(51% 0.118 165)",
+          "oklch(60% 0.10 165)",
+          "oklch(75% 0.07 165)",
+          "oklch(92% 0.03 165)"
+        ]
+      },
+      "signal-violet": {
+        "role": "secondary",
+        "displayName": "Signal Violet",
+        "canonical": "hsl(270 100% 65%)",
+        "tonalRamp": [
+          "oklch(15% 0.05 300)",
+          "oklch(25% 0.09 300)",
+          "oklch(35% 0.13 300)",
+          "oklch(45% 0.17 300)",
+          "oklch(55% 0.20 300)",
+          "oklch(65% 0.22 300)",
+          "oklch(80% 0.15 300)",
+          "oklch(95% 0.05 300)"
+        ]
+      },
+      "terminal-green-glow": {
+        "role": "decorative",
+        "displayName": "Terminal Green Glow",
+        "canonical": "rgba(124, 255, 107, 0.28)",
+        "usage": "Bagliore orbitante sfocato (blur-3xl) dietro la barra di progresso in alto (TopScrollProgress). Tinta vicina a Terminal Green ma tarata a mano (più lime/calda) per leggere bene attraverso lo sfocamento; nessun requisito di contrasto, mai usata su testo o elementi interattivi."
+      },
+      "signal-violet-glow": {
+        "role": "decorative",
+        "displayName": "Signal Violet Glow",
+        "canonical": "rgba(160, 107, 255, 0.3)",
+        "usage": "Bagliore orbitante sfocato (blur-3xl) dietro la barra di progresso in alto (TopScrollProgress), accoppiato a Terminal Green Glow. Tinta vicina a Signal Violet, tarata a mano per l'effetto radiale; nessun requisito di contrasto, mai usata su testo o elementi interattivi."
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "Surface (dark)",
+        "canonical": "oklch(0.141 0.005 285.823)",
+        "tonalRamp": [
+          "oklch(10% 0.005 285)",
+          "oklch(14% 0.005 285)",
+          "oklch(21% 0.006 285)",
+          "oklch(30% 0.006 285)",
+          "oklch(45% 0.01 285)",
+          "oklch(60% 0.01 285)",
+          "oklch(75% 0.008 285)",
+          "oklch(90% 0.005 285)"
+        ]
+      },
+      "surface-light": {
+        "role": "neutral",
+        "displayName": "Surface (light)",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(10% 0.005 285)",
+          "oklch(25% 0.006 285)",
+          "oklch(40% 0.006 285)",
+          "oklch(55% 0.008 285)",
+          "oklch(70% 0.006 285)",
+          "oklch(85% 0.004 285)",
+          "oklch(95% 0.002 285)",
+          "oklch(100% 0 0)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Nome e cognome nell'hero. Unico punto in cui il testo raggiunge la scala massima." },
+      "headline": { "displayName": "Headline", "purpose": "Titolo di ciascuna sezione principale (Chi Sono, Esperienze, La Mia Storia)." },
+      "body": { "displayName": "Body", "purpose": "Paragrafi descrittivi: about, summary, highlights, storia." },
+      "label": { "displayName": "Label / Mono", "purpose": "Prompt di sezione, voci di navigazione, periodo esperienza." },
+      "label-sm": { "displayName": "Label Small / Mono", "purpose": "Tag tecnologici nella timeline Esperienze (tag-chip): stesso font della Label ma a 10px, senza tracciato largo." }
+    },
+    "shadows": [
+      { "name": "neon-border", "value": "0 0 10px hsl(160 100% 50% / 0.3), inset 0 0 10px hsl(160 100% 50% / 0.1)", "purpose": "Feedback hover su card e icon-link: comunica che l'elemento reagisce." },
+      { "name": "neon-text", "value": "0 0 10px hsl(160 100% 50% / 0.6), 0 0 40px hsl(160 100% 50% / 0.3)", "purpose": "Bagliore permanente su testo sempre acceso: cognome, brand, label // di sezione." },
+      { "name": "neon-avatar", "value": "0 0 14px hsl(160 100% 50% / 0.45), 0 0 42px hsl(160 100% 50% / 0.3), inset 0 0 12px hsl(160 100% 50% / 0.18)", "purpose": "Trattamento permanente e più intenso riservato alla foto profilo, punto focale dell'hero." }
+    ],
+    "motion": [
+      { "name": "section-reveal", "value": "opacity/translateY, 0.5-0.6s ease-out, stagger ~0.15s tra elementi fratelli", "purpose": "Ingresso di titoli, card e timeline al primo scroll in vista (once: true)." },
+      { "name": "accent-sweep", "value": "width 0 → 100%, 500ms", "purpose": "Linea di accento che cresce da sinistra sotto le card al hover." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Terminal Button (Primary)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primitivo shadcn default, non ancora usato sulla pagina live; base per future CTA.",
+      "html": "<button class=\"ds-btn-primary\">Scopri Chi Sono</button>",
+      "css": ".ds-btn-primary { background: hsl(160 100% 50%); color: oklch(0.979 0.021 166.113); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 500; height: 32px; padding: 0 14px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s ease, opacity 0.2s ease; } .ds-btn-primary:hover { opacity: 0.8; } .ds-btn-primary:focus-visible { outline: 2px solid hsl(160 100% 50% / 0.5); outline-offset: 2px; }"
+    },
+    {
+      "name": "Icon Link",
+      "kind": "button",
+      "description": "Pattern reale usato per i link social nell'hero e per il toggle tema in navbar: quadrato con angoli morbidi, bordo netto, bagliore neon on-hover.",
+      "html": "<a class=\"ds-icon-link\" href=\"#\" aria-label=\"GitHub\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"></circle><path d=\"M9 12h6M12 9v6\"></path></svg></a>",
+      "css": ".ds-icon-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; border: 1px solid oklch(1 0 0 / 10%); background: oklch(0.274 0.006 286.033 / 0.5); color: hsl(215 15% 50%); transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .ds-icon-link:hover, .ds-icon-link:focus-visible { border-color: hsl(160 100% 50%); color: hsl(160 100% 50%); box-shadow: 0 0 10px hsl(160 100% 50% / 0.3), inset 0 0 10px hsl(160 100% 50% / 0.1); } .ds-icon-link:focus-visible { outline: none; }"
+    },
+    {
+      "name": "Surface Card",
+      "kind": "card",
+      "refersTo": "surface-card",
+      "description": "Card usata per le skill in About e per i capitoli in La Mia Storia: piatta a riposo, bordo che si accende e linea di accento che cresce al hover.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-head\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"></rect></svg><h3>Frontend</h3></div><p>Angular, React, NextJs, Tailwind</p></div>",
+      "css": ".ds-card { position: relative; overflow: hidden; border-radius: 8px; border: 1px solid oklch(1 0 0 / 10%); background: oklch(0.21 0.006 285.885); padding: 24px; transition: border-color 0.2s ease, box-shadow 0.2s ease; } .ds-card::after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: hsl(160 100% 50%); border-radius: 0 0 0 8px; transition: width 0.5s ease; } .ds-card:hover { border-color: hsl(160 100% 50%); box-shadow: 0 0 10px hsl(160 100% 50% / 0.3), inset 0 0 10px hsl(160 100% 50% / 0.1); } .ds-card:hover::after { width: 100%; } .ds-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; color: hsl(160 100% 50%); } .ds-card-head h3 { margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: #fff; } .ds-card p { margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: hsl(215 15% 50%); }"
+    },
+    {
+      "name": "Timeline Card",
+      "kind": "custom",
+      "description": "Componente firma della sezione Esperienze: card agganciata a un nodo su una linea temporale verticale, con gerarchia periodo → ruolo → azienda → summary → tag.",
+      "html": "<div class=\"ds-timeline-item\"><span class=\"ds-timeline-dot\"></span><div class=\"ds-timeline-card\"><span class=\"ds-timeline-period\">Luglio 2018 - Oggi</span><h3>Frontend Team Leader</h3><p class=\"ds-timeline-company\">GRAF Industries S.p.A.</p><p class=\"ds-timeline-summary\">Sviluppo applicativo enterprise TAG Application.</p><div class=\"ds-timeline-tags\"><span class=\"ds-tag\">Angular</span><span class=\"ds-tag\">Spring Boot</span></div></div></div>",
+      "css": ".ds-timeline-item { position: relative; padding-left: 32px; } .ds-timeline-dot { position: absolute; left: 3px; top: 8px; width: 15px; height: 15px; border-radius: 9999px; border: 2px solid hsl(160 100% 50%); background: oklch(0.141 0.005 285.823); display: flex; align-items: center; justify-content: center; } .ds-timeline-dot::after { content: ''; width: 6px; height: 6px; border-radius: 9999px; background: hsl(160 100% 50%); } .ds-timeline-card { border-radius: 8px; border: 1px solid oklch(1 0 0 / 10%); background: oklch(0.21 0.006 285.885); padding: 24px; transition: border-color 0.2s ease; } .ds-timeline-card:hover { border-color: hsl(160 100% 50% / 0.5); } .ds-timeline-period { display: block; margin-bottom: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: hsl(160 100% 50%); } .ds-timeline-card h3 { margin: 0 0 4px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.125rem; color: #fff; } .ds-timeline-company { margin: 0 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: hsl(270 100% 65%); text-shadow: 0 0 10px hsl(270 100% 65% / 0.6), 0 0 40px hsl(270 100% 65% / 0.3); } .ds-timeline-summary { margin: 0 0 12px; font-size: 0.875rem; color: hsl(215 15% 50%); } .ds-timeline-tags { display: flex; flex-wrap: wrap; gap: 8px; }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "tag-chip",
+      "description": "Etichetta informativa non cliccabile per le tecnologie/competenze associate a un'esperienza. Usa lo step tipografico Label Small (10px).",
+      "html": "<span class=\"ds-tag\">Angular</span>",
+      "css": ".ds-tag { display: inline-block; border-radius: 5px; border: 1px solid oklch(1 0 0 / 10%); background: oklch(0.274 0.006 286.033); padding: 2px 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: hsl(215 15% 50%); }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "description": "Voce di menu della navbar fissa: mono maiuscolo, tracciato largo, nessuna decorazione salvo il colore al hover.",
+      "html": "<nav class=\"ds-navbar\"><span class=\"ds-brand\">&lt;AntonioNesta /&gt;</span><a class=\"ds-nav-link\" href=\"#\">Esperienze</a></nav>",
+      "css": ".ds-navbar { display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 24px; border-bottom: 1px solid oklch(1 0 0 / 10%); background: oklch(0.141 0.005 285.823 / 0.8); backdrop-filter: blur(24px); font-family: 'JetBrains Mono', monospace; } .ds-brand { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; color: hsl(160 100% 50%); text-shadow: 0 0 10px hsl(160 100% 50% / 0.6), 0 0 40px hsl(160 100% 50% / 0.3); } .ds-nav-link { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: hsl(215 15% 50%); text-decoration: none; transition: color 0.2s ease; } .ds-nav-link:hover { color: hsl(160 100% 50%); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Terminal Session",
+    "overview": "Il sito si presenta come un terminale/IDE dal vivo: tela scura come stato di default, prompt e label in monospace, un cursore concettuale che pulsa di verde neon sugli elementi che contano davvero. Il tono è precisa e sicuro di sé, senza esagerare: il neon è un segnale raro e controllato, non uno spettacolo, coerente con un profilo che vende credibilità tecnica e leadership, non hype. Ogni superficie è piatta a riposo; il bagliore compare solo come risposta a un'interazione, mai come decorazione gratuita.\n\nLa griglia di sfondo (grid-bg) e il rumore sottile (noise) danno la sensazione di una console tecnica reale, non di un template marketing. La modalità scura è quella nativa e di default (SSR e fallback risolvono su dark); la modalità chiara è un adattamento dello stesso sistema, non un mondo visivo separato: stessi ruoli, stessa gerarchia, colori più tenui.",
+    "keyCharacteristics": [
+      "Dark-first: la tela scura è lo stato nativo del sistema, il chiaro è un adattamento tonale.",
+      "Monospace come voce tecnica: label, prompt (// about me), tag e periodo sono sempre in JetBrains Mono, maiuscolo/tracciato largo.",
+      "Piatto a riposo, vivo al tocco: nessuna ombra strutturale; il bagliore neon (neon-text, neon-border, neon-avatar) è feedback di stato, non ornamento permanente.",
+      "Verde come firma, viola come nota secondaria: il colore non è mai decorativo, ogni uso ha un ruolo semantico preciso."
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "In qualunque vista, al massimo un elemento porta il verde acceso a riposo (il cognome nell'hero o la label // di sezione); tutto il resto del verde è uno stato (hover, bordo attivo), non un elemento fermo. Il viola non compare mai da solo come colore d'azione: resta un dato secondario o un bagliore ambientale.", "section": "colors" },
+      { "name": "The Prompt Rule", "body": "Ogni sezione principale si apre con una riga mono in stile prompt (// section-name) prima del titolo display: è la firma ricorrente che rende riconoscibile l'inizio di ogni blocco di contenuto.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Nessuna superficie ha ombra a riposo. Un'ombra compare solo per marcare uno stato attivo (hover, focus) o un elemento a cui il sistema vuole dare enfasi permanente e dichiarata (nome, avatar).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do trattare il verde neon come segnale raro: un solo elemento acceso a riposo per vista, tutto il resto del verde arriva da uno stato di interazione.",
+      "Do aprire ogni sezione principale con la riga prompt in mono (// nome-sezione) prima del titolo display, per mantenere la firma \"terminale\".",
+      "Do usare il bordo (border-border), non l'ombra, come strumento primario per separare le superfici a riposo.",
+      "Do riservare il bagliore pieno (neon-border, neon-avatar) a stati di interazione o a un singolo elemento permanentemente enfatizzato (l'avatar); su liste lunghe (timeline) preferire il solo cambio di colore del bordo per non affaticare l'occhio.",
+      "Do mantenere il viola (Signal Violet) come dato secondario (azienda, bagliori ambientali), mai come colore di un'azione primaria."
+    ],
+    "donts": [
+      "Don't aggiungere ombre generiche (box-shadow neutro/grigio) per simulare profondità: la profondità qui è solo bordo + bagliore neon colorato.",
+      "Don't introdurre un secondo font oltre a Space Grotesk (voce umana) e JetBrains Mono (voce macchina); non mescolare i due ruoli.",
+      "Don't rendere il verde neon permanente su più di un elemento contemporaneamente nella stessa vista: perde il suo ruolo di segnale.",
+      "Don't aggiungere claim di marketing, testimonianze o dati inventati nei contenuti: il sistema visivo esiste per rendere credibile un contenuto reale, non per compensarne l'assenza."
+    ]
+  }
+}

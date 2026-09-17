@@ -8,8 +8,6 @@
 :root {
   --surface: #070b16;
   --surface-soft: rgba(15, 23, 42, 0.7);
-  --accent-green: #7CFF6B;
-  --accent-violet: #A06BFF;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
@@ -90,7 +88,6 @@
 
   --color-neon-glow: hsl(160 100% 50%);
   --color-neon-purple: hsl(270 100% 65%);
-  --color-neon-blue: hsl(200 100% 60%);
 }
 
 .noise::before {

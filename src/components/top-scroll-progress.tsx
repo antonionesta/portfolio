@@ -20,6 +20,7 @@ export function TopScrollProgress() {
         style={{
           x: orbitX,
           y: orbitY,
+          // Colors documented as `terminal-green-glow` / `signal-violet-glow` in DESIGN.md.
           background:
             "radial-gradient(circle at 30% 30%, rgba(124,255,107,0.28), transparent 55%), radial-gradient(circle at 70% 70%, rgba(160,107,255,0.3), transparent 58%)",
         }}
