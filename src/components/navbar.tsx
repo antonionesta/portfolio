@@ -39,7 +39,7 @@ export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[]
         <a
           href="#home"
           onClick={(event) => navigateTo(event, "#home")}
-          className="flex items-center gap-2 font-mono text-sm font-semibold tracking-wider text-primary neon-text"
+          className="flex items-center gap-2 rounded-md border border-transparent font-mono text-sm font-semibold tracking-wider text-primary neon-text outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           <span>{brand}</span>
         </a>
@@ -51,7 +51,7 @@ export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[]
               key={item.href}
               href={item.href}
               onClick={(event) => navigateTo(event, item.href)}
-              className="px-4 py-2 font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-primary"
+              className="rounded-md border border-transparent px-4 py-2 font-mono text-xs uppercase tracking-widest text-muted-foreground outline-none transition-colors hover:text-primary focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
             >
               {item.label}
             </a>
@@ -90,7 +90,7 @@ export function Navbar({ brand, navItems }: { brand: string; navItems: NavItem[]
                   key={item.href}
                   href={item.href}
                   onClick={(event) => navigateTo(event, item.href)}
-                  className="py-2 font-mono text-sm text-muted-foreground hover:text-primary text-left"
+                  className="rounded-md border border-transparent py-2 text-left font-mono text-sm text-muted-foreground outline-none hover:text-primary focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
                 >
                   {item.label}
                 </a>

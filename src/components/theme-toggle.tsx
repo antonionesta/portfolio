@@ -5,33 +5,40 @@ import { useEffect, useState } from "react";
 
 type ThemeMode = "light" | "dark";
 
-function readPreferredTheme(): ThemeMode {
-  if (typeof window === "undefined") {
-    return "dark";
-  }
-
-  const storedTheme = localStorage.getItem("theme");
-  if (storedTheme === "light" || storedTheme === "dark") {
-    return storedTheme;
-  }
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<ThemeMode>(readPreferredTheme);
+  // null finché non montato: il server non conosce il tema reale (dipende da
+  // localStorage/system), quindi il primo render client deve restare identico
+  // a quello SSR per evitare un hydration mismatch. Lo script inline in
+  // layout.tsx ha già applicato la classe .dark corretta prima dell'hydration;
+  // qui la leggiamo solo per sincronizzare l'icona del bottone.
+  const [theme, setTheme] = useState<ThemeMode | null>(null);
 
   useEffect(() => {
-    // Applica il tema all'elemento root e persiste la scelta.
+    setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
+  }, []);
+
+  useEffect(() => {
+    if (theme === null) {
+      return;
+    }
     document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    // Cambia solo lo stato React: l'effect sincronizza DOM e localStorage.
-    const nextTheme: ThemeMode = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
+    setTheme((current) => (current === "dark" ? "light" : "dark"));
   };
+
+  if (theme === null) {
+    return (
+      <button
+        type="button"
+        aria-hidden="true"
+        disabled
+        className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-muted-foreground"
+      />
+    );
+  }
 
   return (
     <button

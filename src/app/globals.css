@@ -153,7 +153,7 @@ code, .font-mono {
   --secondary-foreground: oklch(0.985 0 0);
   --muted: hsl(220 16% 14%);
   --muted-foreground: hsl(215 15% 57%);
-  --accent: hsl(270 100% 65%);
+  --accent: hsl(270 100% 68%);
   --accent-foreground: hsl(210 20% 95%);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -196,31 +196,52 @@ code, .font-mono {
 
 /* Utility per effetto neon */
 .neon-text {
-  text-shadow: 0 0 10px var(--color-neon-glow) / 0.6, 0 0 40px var(--color-neon-glow) / 0.3;
+  text-shadow:
+    0 0 10px color-mix(in srgb, var(--color-neon-glow) 60%, transparent),
+    0 0 40px color-mix(in srgb, var(--color-neon-glow) 30%, transparent);
 }
 
 .neon-border {
-  box-shadow: 0 0 10px var(--color-neon-glow) / 0.3, inset 0 0 10px var(--color-neon-glow) / 0.1;
+  box-shadow:
+    0 0 10px color-mix(in srgb, var(--color-neon-glow) 30%, transparent),
+    inset 0 0 10px color-mix(in srgb, var(--color-neon-glow) 10%, transparent);
 }
 
 .neon-avatar {
   box-shadow:
-    0 0 14px hsl(var(--color-neon-glow) / 0.45),
-    0 0 42px hsl(var(--color-neon-glow) / 0.3),
-    inset 0 0 12px hsl(var(--color-neon-glow) / 0.18);
+    0 0 14px color-mix(in srgb, var(--color-neon-glow) 45%, transparent),
+    0 0 42px color-mix(in srgb, var(--color-neon-glow) 30%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--color-neon-glow) 18%, transparent);
 }
 
 .neon-purple-text {
-  text-shadow: 0 0 10px var(--color-neon-purple) / 0.6, 0 0 40px var(--color-neon-purple) / 0.3;
+  text-shadow:
+    0 0 10px color-mix(in srgb, var(--color-neon-purple) 60%, transparent),
+    0 0 40px color-mix(in srgb, var(--color-neon-purple) 30%, transparent);
 }
 
 button:not(:disabled) {
   cursor: pointer;
 }
 
+/* Cursore "scroll down": deriva smorzata invece del bounce elastico di Tailwind. */
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-scroll-cue {
+  animation: scroll-cue 1.8s ease-in-out infinite;
+}
+
 /* Rispetta prefers-reduced-motion per le animazioni CSS native (non gestite da framer-motion) */
 @media (prefers-reduced-motion: reduce) {
-  .animate-bounce {
+  .animate-scroll-cue {
     animation: none;
   }
 }

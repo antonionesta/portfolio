@@ -54,7 +54,8 @@ export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
               <a
                 key={i}
                 href={href}
-                className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-secondary/50 text-muted-foreground transition-all hover:border-primary hover:text-primary hover:neon-border"
+                aria-label={label}
+                className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-secondary/50 text-muted-foreground outline-none transition-all hover:border-primary hover:text-primary hover:neon-border focus-visible:border-primary focus-visible:text-primary focus-visible:ring-3 focus-visible:ring-ring/50"
               >
                 {icon ?? label[0]}
               </a>
@@ -86,11 +87,12 @@ export function HeroSection({ hero }: { hero: PortfolioContent["hero"] }) {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
         href="#about"
+        aria-label="Vai alla sezione Chi Sono"
         onClick={(event) => {
           event.preventDefault();
           scrollToSection("#about");
         }}
-        className="absolute bottom-8 inline-flex animate-bounce text-muted-foreground hover:text-primary transition-colors"
+        className="absolute bottom-8 inline-flex animate-scroll-cue rounded-full border border-transparent text-muted-foreground outline-none transition-colors hover:text-primary focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
       >
         <ArrowDown className="h-5 w-5" />
       </motion.a>

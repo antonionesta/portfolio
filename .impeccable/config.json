@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "createdAt": "2026-09-17T19:25:01.742Z",
+        "reason": "DESIGN.md pins Space Grotesk as the display font brand commitment; not an AI-slop default here"
+      }
+    ]
+  }
+}
