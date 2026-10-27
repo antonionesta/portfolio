@@ -1,10 +1,9 @@
 import type { NavItem, PortfolioContent } from "@/types/portfolio";
+import { Github, Linkedin } from "@/components/brand-icons";
 import {
   Code2,
   Cpu,
   Globe,
-  LucideGithub,
-  LucideLinkedin,
   MonitorSmartphone,
   ShoppingCart,
   Rocket,
@@ -30,12 +29,12 @@ export const portfolioContent: PortfolioContent = {
       {
         label: "GitHub",
         href: "https://github.com/antonionesta",
-        icon: <LucideGithub className="size-4" />,
+        icon: <Github className="size-4" />,
       },
       {
         label: "LinkedIn",
         href: "https://www.linkedin.com/in/antonio-nesta-an94",
-        icon: <LucideLinkedin className="size-4" />,
+        icon: <Linkedin className="size-4" />,
       },
     ],
   },

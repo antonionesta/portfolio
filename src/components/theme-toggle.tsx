@@ -1,32 +1,23 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 type ThemeMode = "light" | "dark";
 
+const THEME_STORAGE_KEY = "theme";
+
 export function ThemeToggle() {
-  // null finché non montato: il server non conosce il tema reale (dipende da
-  // localStorage/system), quindi il primo render client deve restare identico
-  // a quello SSR per evitare un hydration mismatch. Lo script inline in
-  // layout.tsx ha già applicato la classe .dark corretta prima dell'hydration;
-  // qui la leggiamo solo per sincronizzare l'icona del bottone.
-  const [theme, setTheme] = useState<ThemeMode | null>(null);
-
-  useEffect(() => {
-    setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
-  }, []);
-
-  useEffect(() => {
-    if (theme === null) {
-      return;
-    }
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  // Il tema viene letto dalla classe .dark, la quale è già stata applicata dallo
+  // script inline in layout.tsx prima dell'hydration. Lato server il tema reale
+  // non è noto, pertanto lo snapshot è null e il primo render client resta
+  // identico a quello SSR, in modo da evitare un hydration mismatch.
+  const theme = useSyncExternalStore(subscribeToTheme, getTheme, getServerTheme);
 
   const toggleTheme = () => {
-    setTheme((current) => (current === "dark" ? "light" : "dark"));
+    const nextTheme: ThemeMode = theme === "dark" ? "light" : "dark";
+    document.documentElement.classList.toggle("dark", nextTheme === "dark");
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
   };
 
   if (theme === null) {
@@ -50,4 +41,20 @@ export function ThemeToggle() {
       {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>
   );
+}
+
+function subscribeToTheme(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  return () => {
+    observer.disconnect();
+  };
+}
+
+function getTheme(): ThemeMode {
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
+function getServerTheme(): ThemeMode | null {
+  return null;
 }
